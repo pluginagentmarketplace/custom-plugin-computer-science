@@ -1,100 +1,83 @@
 {
-  "name": "developer-roadmap-plugin",
+  "name": "computer-science-plugin",
   "version": "1.0.0",
-  "description": "Comprehensive learning plugin with 65+ developer roadmaps covering all major tech stacks, specializations, and career paths. 7 parallel agents analyze roadmaps with skill-based learning paths.",
-  "author": "Plugin Development Team",
-  "repository": "https://github.com/kamranahmedse/developer-roadmap",
-  "keywords": ["developer-roadmap", "learning-path", "skill-development", "roadmap", "career-development"],
+  "description": "Computer Science fundamentals plugin: algorithms, data structures, complexity analysis, and core CS theory. 5 expert agents guide you through every CS domain with precision.",
+  "author": "CS Learning Team",
+  "keywords": ["computer-science", "algorithms", "data-structures", "complexity", "cs-fundamentals", "discrete-math"],
   "agents": [
     {
-      "id": "frontend-specialist",
-      "name": "Frontend Development Specialist",
-      "file": "agents/01-frontend-specialist.md",
-      "description": "Expert in frontend technologies, frameworks, and UI/UX development"
+      "id": "foundations-expert",
+      "name": "CS Foundations Expert",
+      "file": "agents/01-foundations-expert.md",
+      "description": "Master computational thinking, discrete math, logic, and fundamental CS concepts"
     },
     {
-      "id": "backend-specialist",
-      "name": "Backend Development Specialist",
-      "file": "agents/02-backend-specialist.md",
-      "description": "Specialist in server-side development, databases, and APIs"
+      "id": "algorithms-expert",
+      "name": "Algorithms & Problem Solving Expert",
+      "file": "agents/02-algorithms-expert.md",
+      "description": "Design efficient algorithms, master common patterns, and solve complex problems"
     },
     {
-      "id": "devops-specialist",
-      "name": "DevOps & Cloud Specialist",
-      "file": "agents/03-devops-specialist.md",
-      "description": "Expert in DevOps, cloud infrastructure, containerization, and orchestration"
+      "id": "data-structures-expert",
+      "name": "Data Structures Expert",
+      "file": "agents/03-data-structures-expert.md",
+      "description": "Choose and implement optimal data structures for every scenario"
     },
     {
-      "id": "data-ai-specialist",
-      "name": "Data Science & AI Specialist",
-      "file": "agents/04-data-ai-specialist.md",
-      "description": "Specialist in AI, machine learning, data science, and ML engineering"
+      "id": "complexity-theory-expert",
+      "name": "Complexity & Theory Expert",
+      "file": "agents/04-complexity-theory-expert.md",
+      "description": "Analyze algorithm complexity, computability, and computational theory"
     },
     {
-      "id": "languages-specialist",
-      "name": "Languages & Fundamentals Specialist",
-      "file": "agents/05-languages-specialist.md",
-      "description": "Expert in programming languages, computer science fundamentals, and core concepts"
-    },
-    {
-      "id": "architecture-specialist",
-      "name": "Architecture & Design Specialist",
-      "file": "agents/06-architecture-specialist.md",
-      "description": "Specialist in system design, architecture patterns, and software design"
-    },
-    {
-      "id": "security-specialist",
-      "name": "Security & Compliance Specialist",
-      "file": "agents/07-security-specialist.md",
-      "description": "Expert in cybersecurity, security practices, and compliance standards"
+      "id": "systems-expert",
+      "name": "Systems & Architecture Expert",
+      "file": "agents/05-systems-expert.md",
+      "description": "Understand computer systems, networks, databases, and distributed computing"
     }
   ],
   "commands": [
     {
-      "file": "commands/roadmap.md",
-      "description": "Browse and explore 65+ developer roadmaps by category"
+      "file": "commands/learn.md",
+      "description": "Start a guided Computer Science learning path"
     },
     {
-      "file": "commands/learning-path.md",
-      "description": "Get personalized learning path based on your role and goals"
+      "file": "commands/problem.md",
+      "description": "Get help solving algorithmic and data structure problems"
     },
     {
-      "file": "commands/skills.md",
-      "description": "View required skills and learning resources for any role"
+      "file": "commands/analyze.md",
+      "description": "Analyze algorithm complexity and performance"
     },
     {
-      "file": "commands/assess.md",
-      "description": "Self-assess your knowledge level across different domains"
+      "file": "commands/quiz.md",
+      "description": "Test your CS knowledge with interactive quizzes"
     }
   ],
   "skills": [
     {
-      "name": "frontend-development",
-      "file": "skills/frontend/SKILL.md"
+      "name": "cs-foundations",
+      "file": "skills/foundations/SKILL.md"
     },
     {
-      "name": "backend-development",
-      "file": "skills/backend/SKILL.md"
+      "name": "algorithms",
+      "file": "skills/algorithms/SKILL.md"
     },
     {
-      "name": "devops-infrastructure",
-      "file": "skills/devops/SKILL.md"
+      "name": "data-structures",
+      "file": "skills/data-structures/SKILL.md"
     },
     {
-      "name": "data-science-ai",
-      "file": "skills/data-ai/SKILL.md"
+      "name": "complexity-analysis",
+      "file": "skills/theory/SKILL.md"
     },
     {
-      "name": "programming-languages",
-      "file": "skills/languages/SKILL.md"
+      "name": "systems-computing",
+      "file": "skills/systems/SKILL.md"
     },
     {
-      "name": "architecture-design",
-      "file": "skills/architecture/SKILL.md"
-    },
-    {
-      "name": "security-practices",
-      "file": "skills/security/SKILL.md"
+      "name": "advanced-topics",
+      "file": "skills/advanced/SKILL.md"
     }
   ]
 }
