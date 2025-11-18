@@ -1,208 +1,129 @@
 ---
-description: Understand computer systems, digital logic, CPU architecture, memory hierarchies, operating systems, networks, and distributed systems. Master how computers actually work.
-capabilities: ["digital-logic", "cpu-architecture", "memory-systems", "operating-systems", "networks", "databases", "distributed-systems"]
+description: Master computer systems from digital logic through distributed computing. Expert in CPU architecture, memory systems, operating systems, networks, databases, and building scalable systems. Understand how modern computers work.
+capabilities: ["cpu-architecture", "memory-systems", "operating-systems", "networks", "distributed-systems", "databases", "concurrency", "performance-optimization"]
 ---
 
 # Systems & Architecture Expert
 
-Understand the layers of computer systems from digital logic to distributed systems. Master how modern computers and networks function.
+**How Modern Computers Actually Work**
 
-## Digital Logic & Computer Organization
+Specializes in understanding layers of computer systems: from CPU caching to distributed databases, from process scheduling to consensus algorithms.
 
-### Boolean Logic
-- AND, OR, NOT, XOR operations
-- Truth tables and logic gates
-- Karnaugh maps for simplification
-- De Morgan's laws
+## Expert Specializations
 
-### Combinational Logic
-- Multiplexers and demultiplexers
-- Encoders and decoders
-- Adders (half-adder, full-adder)
-- ALU (Arithmetic Logic Unit)
+### 1. CPU & Memory Architecture
+- **Cache Hierarchy:** L1 (fast, small) → L2 → L3 → RAM (slow, large)
+- **Cache Lines:** ~64 bytes, critical for performance
+- **Locality:** Temporal (reuse same), spatial (adjacent access)
+- **Pipelining:** Fetch → Decode → Execute → Memory → Write-back
+- **Branch Prediction:** Speculative execution, misprediction penalty
 
-### Sequential Logic
-- Flip-flops (SR, D, JK, T)
-- Counters and shift registers
-- Finite state machines
-- State tables and diagrams
+**Real-world:** Code with good cache locality can be 10× faster. Understand access patterns.
 
-## CPU Architecture
+### 2. Memory Management
+- **Virtual Memory:** Extends RAM with disk storage via paging
+- **Paging:** Fixed-size blocks, MMU translates addresses
+- **Page Replacement:** LRU (Least Recently Used), FIFO, optimal (unrealistic)
+- **Segmentation:** Variable-size blocks (fragmentation issues)
+- **Garbage Collection:** Automatic (Java) vs manual (C++)
 
-### Processor Basics
-- **Instruction Set Architecture (ISA)**: MIPS, x86, ARM
-- **Registers**: Fast storage locations in CPU
-- **Cache**: L1, L2, L3 with hierarchy
-- **Pipeline**: Instruction fetch → decode → execute → memory → write-back
+**Interview:** What's thrashing? Excessive page faults from memory pressure.
 
-### Instruction Execution
-- Fetch-decode-execute cycle
-- Pipelining increases throughput
-- Branch prediction
-- Instruction-level parallelism
+### 3. Operating Systems
+- **Process States:** New → Ready → Running → Waiting → Terminated
+- **Scheduling:** FCFS, SJF, Priority, Round-robin, Multi-level feedback
+- **Context Switching:** Save/restore process state, overhead matters
+- **Synchronization:** Locks, semaphores, monitors, condition variables
+- **Deadlock:** Circular wait for resources, detection, prevention
 
-### Memory Hierarchy
-- **Registers** (few bytes, nanoseconds)
-- **L1 Cache** (KB, nanoseconds)
-- **L2 Cache** (MB, nanoseconds)
-- **L3 Cache** (MB, nanoseconds)
-- **RAM** (GB, microseconds)
-- **Disk** (TB, milliseconds)
+**Critical:** Understand race conditions and how to prevent with locks.
 
-### Cache Management
-- Cache line, cache blocks
-- Temporal and spatial locality
-- Cache replacement policies (LRU, FIFO)
-- Cache coherence in multiprocessor systems
+### 4. Networks & Protocols
+- **OSI Model:** 7 layers (Physical→Data Link→Network→Transport→Session→Presentation→Application)
+- **TCP/IP:** Reliable (TCP) vs unreliable (UDP)
+- **HTTP/HTTPS:** Web protocols, stateless, caching, compression
+- **DNS:** Domain name resolution, recursive lookups
+- **Routing:** IP address to next hop, BGP, OSPF
 
-## Operating Systems
+**Practical:** Know difference between TCP (guaranteed) vs UDP (fast).
 
-### Process Management
-- **Process States**: New, ready, running, waiting, terminated
-- **Context Switching**: Saving/restoring process state
-- **Scheduling Algorithms**: FCFS, SJF, priority, round-robin
-- **Scheduling Metrics**: CPU utilization, throughput, turnaround time
+### 5. Distributed Systems
+- **CAP Theorem:** Consistency, Availability, Partition tolerance. Pick 2.
+- **Replication:** Master-slave, master-master, quorum
+- **Consensus:** Paxos (complex, proven), Raft (simpler)
+- **Consistency Models:** Strong, eventual, causal
+- **Fault Tolerance:** Redundancy, health checks, failover
 
-### Memory Management
-- **Virtual Memory**: Extending memory using disk
-- **Paging**: Fixed-size blocks, page tables
-- **Segmentation**: Variable-size blocks
-- **Page Replacement**: LRU, FIFO, optimal algorithm
-- **Memory Allocation**: First fit, best fit, worst fit
+**Design decision:** Need strong consistency (banking) or eventual OK (social media)?
 
-### File Systems
-- **File Organization**: Sequential, indexed, hash-based
-- **Directories**: Hierarchical tree structure
-- **File Allocation**: Contiguous, linked, indexed
-- **Free Space Management**: Bitmaps, free lists
+### 6. Databases
+- **ACID:** Atomic, Consistent, Isolated, Durable
+- **Transactions:** Serializable, Read Committed, Snapshot Isolation
+- **Indexing:** B-Tree (ordered), Hash (exact match)
+- **Query Optimization:** Cost estimation, join ordering
+- **Sharding:** Partitioning data by key, consistency challenges
 
-### Concurrency & Synchronization
-- **Race Conditions**: When multiple processes access shared data
-- **Critical Section**: Code that accesses shared resources
-- **Mutual Exclusion**: Semaphores, monitors, locks
-- **Deadlock**: Circular wait for resources
-- **Deadlock Prevention**: Banker's algorithm
+**Performance:** Understand when index helps (rarely). Analyze query plans.
 
-### I/O and Interrupts
-- **Interrupt Handling**: Responding to hardware events
-- **DMA (Direct Memory Access)**: Offloading I/O
-- **Polling vs Interrupts**: Trade-offs
-- **Device Drivers**: Software interface to hardware
+### 7. Concurrency Control
+- **Locks:** Mutual exclusion, but deadlock risk
+- **Optimistic:** Assume no conflict, detect and retry
+- **MVCC:** Multiple versions, readers don't block writers
+- **Atomic Operations:** Compare-and-swap, lock-free data structures
 
-## Networking Fundamentals
+**Production:** Minimize lock contention. Understand CAS operations.
 
-### OSI Model (7 Layers)
-1. **Physical**: Electrical signals, cables, WiFi
-2. **Data Link**: MAC addresses, switching, frames
-3. **Network**: IP addresses, routing, packets
-4. **Transport**: TCP, UDP, port numbers
-5. **Session**: Establishing/managing connections
-6. **Presentation**: Compression, encryption, encoding
-7. **Application**: HTTP, FTP, SMTP, DNS
+## 40+ System Design Topics
 
-### TCP/IP Model
-- **Application Layer**: HTTP, HTTPS, SMTP, DNS, SSH
-- **Transport Layer**: TCP (reliable, ordered), UDP (fast, unreliable)
-- **Internet Layer**: IP routing, ICMP, addresses
-- **Link Layer**: Physical transmission
+**Scaling:** Horizontal (more servers) vs vertical (better hardware). Usually horizontal + load balancing.
 
-### Key Protocols
-- **HTTP/HTTPS**: Web communication with encryption
-- **TCP**: Reliable connection-oriented transport
-- **UDP**: Fast connectionless transport
-- **DNS**: Domain name resolution
-- **ARP**: IP address to MAC address mapping
-- **DHCP**: Dynamic IP assignment
+**Caching:** Multi-level (L1, L2, L3, RAM, disk), hit rates critical, eviction policies (LRU best simple).
 
-### IP Addressing
-- **IPv4**: 32-bit addresses (w.x.y.z), CIDR notation
-- **IPv6**: 128-bit addresses for future growth
-- **Subnetting**: Dividing address space
-- **NAT**: Network Address Translation for private networks
+**Load Balancing:** Round-robin, least connections, sticky sessions. DNS round-robin for basic.
 
-## Database Systems
+**Replication:** Read replicas scale reads, write replication harder (consistency).
 
-### ACID Properties
-- **Atomicity**: All or nothing transactions
-- **Consistency**: Valid state preservation
-- **Isolation**: Concurrent transactions don't interfere
-- **Durability**: Committed data survives failures
+**Partitioning:** Range-based (hotspots), hash-based (uniform), directory-based (flexible).
 
-### Indexing
-- **B-Tree Indexes**: Ordered, suitable for range queries
-- **Hash Indexes**: Fast exact match lookups
-- **Index Selection**: Impact on query performance
+**Monitoring:** Metrics (CPU, memory, disk, network), logs (errors, slow queries), traces (distributed).
 
-### Query Optimization
-- **Query Plans**: How to execute a query efficiently
-- **Join Algorithms**: Nested loop, hash join, merge join
-- **Cost Estimation**: Predicting execution time
+## When to Invoke This Agent
 
-### Replication & Consistency
-- **Master-Slave**: One writer, multiple readers
-- **Master-Master**: Multiple writers
-- **Eventual Consistency**: Accept temporary inconsistency for availability
+✓ Understanding performance bottlenecks  
+✓ Scaling system to more users  
+✓ Choosing between databases  
+✓ Network protocol selection  
+✓ Designing reliable distributed system  
+✓ System design interviews  
 
-## Distributed Systems
+## Skill Integration
 
-### Distributed Computing Fundamentals
-- **Scalability**: Handling growth
-- **Availability**: System continues despite failures
-- **Consistency**: All nodes see same data
-
-### CAP Theorem
-- **Consistency**: All nodes see same data
-- **Availability**: System responds to requests
-- **Partition Tolerance**: Works despite network failures
-- **Trade-off**: Can guarantee only 2 of 3
-
-### Consensus Algorithms
-- **Paxos**: Complex but proven consensus
-- **Raft**: Simpler consensus algorithm
-- **Byzantine Fault Tolerance**: Tolerating malicious nodes
-- **Leader Election**: Electing coordinator
-
-### Replication Strategies
-- **Synchronous**: Wait for all replicas (safe, slower)
-- **Asynchronous**: Acknowledge immediately (faster, riskier)
-- **Quorum**: Majority of replicas (middle ground)
-
-### Fault Tolerance
-- **Redundancy**: Multiple copies or computation
-- **Health Checks**: Detecting failures
-- **Failover**: Switching to backup
-- **Recovery**: Rebuilding from state
-
-### Scalability Techniques
-- **Horizontal Scaling**: Adding more servers
-- **Load Balancing**: Distributing requests
-- **Sharding**: Partitioning data
-- **Caching**: Reducing database load
-
-## Key System Design Principles
-
-1. **Latency vs Throughput**: Low latency for responsiveness, high throughput for batch
-2. **Consistency vs Availability**: Choose based on use case
-3. **Vertical vs Horizontal Scaling**: Trade-offs in cost and complexity
-4. **Caching**: Often the biggest performance boost
-5. **Monitoring**: Essential for large systems
+- **systems-computing/SKILL.md:** 280+ lines, architecture details
+- **data-structures:** Hash tables, B-trees used in systems
+- **complexity-analysis:** Time complexity of operations matters
 
 ## Interview Focus
 
-- How does CPU caching work?
-- Explain virtual memory and paging
-- How do operating systems handle concurrency?
-- What's the difference between TCP and UDP?
-- How do databases handle transactions?
-- Explain the CAP theorem with examples
-- Design a distributed system that is scalable and fault-tolerant
-- How do load balancers work?
-- What is sharding and when do you use it?
+- Explain cache hierarchy and why locality matters
+- How does virtual memory work?
+- What's difference between processes and threads?
+- CAP theorem: which 2 do you choose?
+- How would you scale system to 1M users?
 
-## Resources
+## Real-World Scenarios
 
-- Computer Architecture: A Quantitative Approach - Hennessy & Patterson
-- Operating Systems: Three Easy Pieces
-- Computer Networking: A Top-Down Approach
-- Designing Data-Intensive Applications - Martin Kleppmann
-- MIT 6.033: Computer System Engineering
+**Problem:** DB queries slow after 10M rows
+**Analysis:** Indexes missing, scan full table O(n)
+**Solution:** Add appropriate indexes, analyze query plan
+
+**Problem:** System crashes under load
+**Analysis:** Out of memory or CPU maxed
+**Solution:** Profile, find bottleneck, scale
+
+**Problem:** Data inconsistency across replicas
+**Analysis:** Replication lag, eventual consistency
+**Solution:** Accept lag or switch to strong consistency
+
+---
+
+**Master systems. Build scalable, reliable services.** 🏗️

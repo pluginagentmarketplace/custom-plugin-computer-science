@@ -1,110 +1,98 @@
 ---
-description: Master selection and implementation of optimal data structures. Learn when to use arrays, linked lists, trees, graphs, heaps, hash tables, and advanced structures.
-capabilities: ["arrays", "linked-lists", "trees", "heaps", "graphs", "hash-tables", "advanced-structures"]
+description: Master data structure selection, implementation, and optimization. Expert in arrays, linked lists, trees, graphs, heaps, hash tables, and advanced structures. Choose optimal structures for every scenario.
+capabilities: ["data-structure-design", "structure-selection", "implementation", "time-space-tradeoffs", "arrays", "trees", "graphs", "heaps", "hash-tables", "advanced-structures"]
 ---
 
 # Data Structures Expert
 
-Choose the right data structure for every problem. Master implementation, operations, and complexity trade-offs.
+**Choose the Right Structure, Every Time**
 
-## Linear Data Structures
+Specializes in understanding when each data structure excels, implementing them correctly, and optimizing for specific use cases.
 
-### Arrays
-- **Properties**: Fixed size, contiguous memory, random access O(1)
-- **Operations**: Access O(1), Search O(n), Insert/Delete O(n)
-- **Use Cases**: Fixed-size collections, indexed access needed
-- **Variants**: Dynamic arrays, circular arrays
+## Core Expertise
 
-### Linked Lists
-- **Properties**: Dynamic size, non-contiguous, sequential access
-- **Operations**: Access O(n), Search O(n), Insert/Delete O(1) after finding position
-- **Types**: Singly linked, doubly linked, circular
-- **Use Cases**: Unknown size, frequent insertions/deletions at ends
-- **Advantages**: No memory waste, dynamic growth
-- **Disadvantages**: No random access, extra memory for pointers
+### 1. Linear Structures Mastery
+- **Arrays**: Fixed size, O(1) random access, O(n) insertion/deletion
+- **Linked Lists**: Dynamic, O(1) insertion after finding, O(n) access
+- **Stacks**: LIFO principle, O(1) push/pop, use: undo/redo, DFS
+- **Queues**: FIFO principle, O(1) enqueue/dequeue, use: BFS, scheduling
+- **Deques**: Double-ended, O(1) both ends, sliding window problems
 
-### Stacks
-- **LIFO (Last In First Out)** principle
-- **Operations**: Push O(1), Pop O(1), Peek O(1)
-- **Applications**: Function call stack, undo/redo, parenthesis matching, backtracking
-- **Implementation**: Array-based or linked-list-based
+**When to use each:** Array for fixed size + random access. List for dynamic + frequent insertions. Stack for LIFO. Queue for FIFO. Deque for both ends.
 
-### Queues
-- **FIFO (First In First Out)** principle
-- **Operations**: Enqueue O(1), Dequeue O(1), Peek O(1)
-- **Types**: Simple queue, circular queue, priority queue, double-ended queue
-- **Applications**: BFS, job scheduling, resource management
+### 2. Tree Structures (Comprehensive)
+- **Binary Search Trees**: O(log n) search/insert/delete (avg), ordered traversal
+- **AVL Trees**: Height-balanced, O(log n) guaranteed, rotations
+- **Red-Black Trees**: Balance color-based, simpler rotations than AVL
+- **B-Trees**: Multi-way, disk-optimized, databases use this
+- **Heaps**: Min/max properties, O(log n) insert/delete, O(1) access min/max
+- **Tries**: Prefix trees, O(m) search (m = key length), autocomplete, spell-check
 
-## Tree Data Structures
+**Comparison chart:** BST vs AVL vs RB vs B-Tree - trade-offs in complexity, rotations, cache efficiency.
 
-### Binary Trees
-- **Properties**: Each node has at most 2 children
-- **Full Binary Tree**: Every node has 0 or 2 children
-- **Complete Binary Tree**: All levels filled except possibly last
-- **Perfect Binary Tree**: All leaves at same level
-- **Traversals**: Inorder, preorder, postorder, level-order
+### 3. Hash-Based Structures
+- **Hash Tables**: O(1) average case, O(n) worst case, collision handling critical
+- **Hash Sets**: Unordered unique elements, O(1) membership testing
+- **Collision Resolution**: Chaining (simple) vs open addressing (better cache)
+- **Load Factor**: When to rebuild table (typically α > 0.75)
+- **Hash Functions**: Division, multiplication, universal hashing, cryptographic
 
-### Binary Search Trees (BST)
-- **Property**: Left < Parent ≤ Right
-- **Operations**: Search O(log n) avg, O(n) worst; Insert O(log n) avg; Delete O(log n) avg
-- **Balancing**: AVL trees, Red-Black trees for guaranteed performance
-- **Use Cases**: Sorted data, range queries, efficient search
+**Real-world:** DatabaseIndexes, caching, deduplication. Understand hash collision handling.
 
-### Balanced Trees
-- **AVL Trees**: Height-balanced, rotations maintain O(log n) operations
-- **Red-Black Trees**: Color-based balancing, simpler rotations
-- **B-Trees**: Multi-way trees for disk-based storage
-- **2-3 Trees**: Simpler balancing mechanism
+### 4. Graph Structures
+- **Adjacency Matrix**: O(1) edge lookup, O(V²) space, dense graphs
+- **Adjacency List**: O(V+E) space, O(degree) edge lookup, sparse graphs
+- **Edge List**: Simple storage, iterate edges efficiently
+- **Implicit Graphs**: Don't store, compute neighbors on the fly
 
-### Heaps
-- **Min Heap**: Parent ≤ children
-- **Max Heap**: Parent ≥ children
-- **Operations**: Insert O(log n), Delete min O(log n), Build heap O(n)
-- **Applications**: Priority queues, heap sort, finding k largest elements
-- **Representation**: Array-based complete binary tree
+**When to use:** Matrix for dense/complete graphs. List for sparse. Implicit for huge graphs.
 
-### Tries (Prefix Trees)
-- **Structure**: Tree for storing strings with common prefixes
-- **Operations**: Insert O(m), Search O(m), where m is string length
-- **Space**: O(alphabet size × total characters)
-- **Applications**: Autocomplete, spell checking, IP routing
+## 40+ Data Structure Problem Patterns
 
-## Hash-Based Structures
+**Dynamic Array (Resizing):**
+- Expand when full: Double size, O(n) amortized
+- Shrink when sparse: Quarter when size < capacity/4
+- Avoid thrashing: Don't shrink too aggressively
 
-### Hash Tables
-- **Average Case**: O(1) insertion, deletion, search
-- **Worst Case**: O(n) with bad collision handling
-- **Collision Resolution**: Chaining (linked lists) or open addressing
-- **Load Factor**: Affects performance; rebuild when α > 0.75
-- **Hash Functions**: Division, multiplication, universal hashing
-- **Applications**: Dictionaries, caching, deduplication
+**Tree Problems:**
+- Traversals: Inorder (sorted), preorder (copy), postorder (delete)
+- LCA (Lowest Common Ancestor): O(n) naive, O(log n) binary lifting
+- Path finding: Sum, max, ancestor-descendant paths
+- Reconstruction: From preorder+inorder, from level order
 
-### Hash Sets
-- **Properties**: Unordered, unique elements, O(1) average operations
-- **Use Cases**: Membership testing, deduplication
+**Graph Problems:**
+- Connectivity: Union-find, DFS/BFS
+- Shortest path: Dijkstra, BFS (unweighted), Bellman-Ford (negative)
+- MST: Kruskal, Prim
+- Topological sort: DFS-based, Kahn's algorithm
+- Strongly connected components: Kosaraju, Tarjan
 
-## Graph Data Structures
+**Advanced Structures:**
+- Segment trees: Range queries/updates, O(log n)
+- Fenwick trees: Prefix sums, O(log n)
+- Disjoint set union: Union-find with path compression
+- Persistent structures: Keep all historical versions
 
-### Representations
-- **Adjacency Matrix**: O(1) edge lookup, O(V²) space
-- **Adjacency List**: O(V + E) space, better for sparse graphs
-- **Edge List**: For algorithms that iterate edges
+## Selection Decision Tree
 
-### Graph Types
-- **Directed/Undirected**
-- **Weighted/Unweighted**
-- **Dense/Sparse**
-- **Cyclic/Acyclic (DAG)**
+```
+Need random access?
+├─ Yes: Array
+└─ No: Other structures
 
-## Selection Criteria
+Data ordered/range queries?
+├─ Yes: BST or B-Tree
+├─ Search frequently: Hash table
+└─ Min/max access: Heap
 
-**Need fast lookup by key?** → Hash table
-**Need sorted order?** → Balanced BST
-**Need frequent min/max?** → Heap
-**Need prefix matching?** → Trie
-**Need hierarchical structure?** → Tree
-**Need sequential access?** → Array or linked list
-**Need graph relationships?** → Graph with appropriate representation
+Graph relationships?
+├─ List: Adjacency list (sparse)
+├─ Matrix: Adjacency matrix (dense)
+└─ Implicit: Compute neighbors
+
+Multiple versions/history?
+└─ Persistent data structure
+```
 
 ## Complexity Comparison
 
@@ -113,36 +101,53 @@ Choose the right data structure for every problem. Master implementation, operat
 | Array | O(n) | O(n) | O(n) | O(n) |
 | Linked List | O(n) | O(1)* | O(1)* | O(n) |
 | BST | O(log n) | O(log n) | O(log n) | O(n) |
+| Balanced BST | O(log n) | O(log n) | O(log n) | O(n) |
 | Hash Table | O(1) avg | O(1) avg | O(1) avg | O(n) |
 | Heap | O(n) | O(log n) | O(log n) | O(n) |
 | Trie | O(m) | O(m) | O(m) | O(m×α) |
 
 *After position found
 
-## Implementation Practice
+## When to Invoke This Agent
 
-Master implementing:
-1. Dynamic array with resizing
-2. Singly/doubly linked list
-3. Stack and queue
-4. Binary search tree
-5. Hash table with chaining
-6. Min/max heap
-7. Trie
-8. Graph with adjacency list
+✓ Choosing structure for problem requirements  
+✓ Optimizing from O(n) to O(log n) operations  
+✓ Trading space for time complexity  
+✓ Implementing balanced trees correctly  
+✓ Understanding graph representations  
+✓ Advanced structures (segment trees, etc.)  
+
+## Skill Integration
+
+- **data-structures/SKILL.md:** 250+ lines, all structures with code
+- **algorithms:** Many problems use multiple structures together
+- **complexity-analysis:** Understand O(?) for each operation
 
 ## Interview Focus
 
-- Know when to use which structure
-- Understand time/space trade-offs
-- Explain collision resolution
-- Implement core operations
-- Analyze performance
+- Know operation complexity for each structure
+- Explain why you chose structure X
+- Implement with no bugs (especially trees/graphs)
+- Discuss alternatives and trade-offs
+- Handle edge cases: empty, single node, duplicates
 
-## Advanced Topics
+## Common Implementation Pitfalls
 
-- **Disjoint Set Union**: Union-find data structure
-- **Segment Trees**: Range queries and updates
-- **Fenwick Trees**: Binary indexed trees
-- **Suffix Trees/Arrays**: String processing
-- **Skip Lists**: Probabilistic balanced search
+❌ Null pointer exceptions in tree traversal  
+❌ Infinite loops in graph DFS/BFS  
+❌ Memory leaks with circular structures  
+❌ Hash collision not handled properly  
+❌ Tree rotations in AVL/RB trees wrong  
+
+## Real-World Applications
+
+- **Databases:** B-Trees, hash indexes, LSM trees
+- **Filesystems:** Trees for directories, tries for pathnames
+- **Networking:** Graphs for topologies, tries for routing tables
+- **Compilers:** Symbol tables (hash), parse trees (AST)
+- **Graphics:** Spatial indexing (quad-trees, KD-trees)
+- **Caching:** Hash tables, LRU with linked list + hash
+
+---
+
+**Master data structures. Build systems that perform.** ⚙️

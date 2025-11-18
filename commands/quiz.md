@@ -1,303 +1,235 @@
 # /quiz
 
-Test your Computer Science knowledge with interactive quizzes across all major domains.
+Test your Computer Science knowledge with adaptive, comprehensive quizzes across all domains.
 
-## Usage
+## Quick Usage
 
 ```
-/quiz [domain] [difficulty]
-/quiz foundations easy
-/quiz algorithms medium
-/quiz data-structures hard
-/quiz systems mixed
-/quiz all comprehensive
+/quiz [domain]              → Take quiz in domain
+/quiz [domain] [difficulty] → Specific difficulty (easy/medium/hard)
+/quiz all comprehensive     → Full assessment all domains
+/quiz [domain] timed        → 60-second round
+/quiz stats                 → Your quiz history and scores
+/quiz resume                → Continue interrupted quiz
 ```
 
-## Available Domains
+## Quiz Domains
 
-### Foundations (15 questions)
-- Discrete mathematics
-- Logic and proofs
-- Set theory
-- Basic computability
+### 1. Foundations Quiz (20 questions)
+**Topics:** Logic, proofs, set theory, combinatorics, number theory
 
-### Algorithms (20 questions)
-- Algorithm design patterns
-- Sorting and searching
-- Dynamic programming
-- Graph algorithms
+**Sample questions:**
+- Explain mathematical induction with example (Medium)
+- Prove by contradiction: √3 is irrational (Medium)
+- How many ways to arrange 5 distinct objects? (Easy)
+- What's the Pigeonhole Principle? (Easy)
+- Solve: x ≡ 3 (mod 5) and x ≡ 2 (mod 7) (Hard)
 
-### Data Structures (20 questions)
-- Linear structures
-- Trees and heaps
-- Hash tables
-- Tries and graphs
+**Passing:** 16/20 (80%)
 
-### Complexity Theory (15 questions)
-- Big O notation
-- Recurrence relations
-- P vs NP
-- NP-completeness
+### 2. Algorithms Quiz (25 questions)
+**Topics:** Sorting, searching, DP, greedy, backtracking
 
-### Systems (20 questions)
-- CPU architecture
-- Operating systems
-- Networks
-- Distributed systems
+**Sample:**
+- Compare merge sort vs quick sort (Easy)
+- When is greedy algorithm optimal? Explain. (Medium)
+- Solve coin change problem for n=10 (Hard)
+- Design DP solution for knapsack (Hard)
 
-### Interview Questions (25 mixed)
-- Real interview questions
-- Multiple domains
-- Varying difficulty
-- Company-specific
+**Passing:** 20/25 (80%)
 
-## Difficulty Levels
+### 3. Data Structures Quiz (20 questions)
+**Topics:** Linear, trees, graphs, hashes, advanced
 
-### Easy (Warm-up)
-- Recall facts
-- Basic concepts
-- Simple calculations
-- Foundation check
+**Sample:**
+- BST search complexity? Why? (Easy)
+- When use linked list vs array? (Medium)
+- Implement LRU cache using hash + list (Hard)
 
-**Example**:
-What is the time complexity of binary search?
-a) O(n)
-b) O(log n)
-c) O(n²)
-d) O(1)
+**Passing:** 16/20 (80%)
 
-### Medium (Assessment)
-- Apply concepts
-- Compare approaches
-- Solve problems
-- Deeper understanding
+### 4. Complexity Theory Quiz (15 questions)
+**Topics:** Big O, Master Theorem, NP-completeness, computability
 
-**Example**:
-Which sorting algorithm has O(n) worst-case time complexity?
-a) Quicksort
-b) Merge sort
-c) Bubble sort
-d) Heap sort
+**Sample:**
+- What's Big O vs Big Theta? (Easy)
+- Apply Master Theorem: T(n)=3T(n/2)+n (Medium)
+- Reduce 3-SAT to prove NP-completeness (Hard)
 
-### Hard (Challenge)
-- Complex analysis
-- Theoretical knowledge
-- Multi-concept problems
-- Advanced topics
+**Passing:** 12/15 (80%)
 
-**Example**:
-Prove that comparison-based sorting requires Ω(n log n) comparisons.
+### 5. Systems Quiz (20 questions)
+**Topics:** CPU, memory, OS, networks, databases, distributed
 
-## Quiz Format
+**Sample:**
+- Explain CPU cache hierarchy (Easy)
+- Virtual memory: paging vs segmentation? (Medium)
+- Design replicated database with CAP theorem (Hard)
 
-### Multiple Choice
-- 4 options
-- Select best answer
-- Instant feedback
-
-### True/False
-- Statement evaluation
-- Quick assessment
-- Explanation provided
-
-### Short Answer
-- Write code snippet
-- Design algorithm
-- Explain concept
-
-### Matching
-- Match concepts to definitions
-- Pair algorithms to problems
-- Connect patterns to examples
-
-### Essay
-- Explain in detail
-- Show reasoning
-- Discuss trade-offs
+**Passing:** 16/20 (80%)
 
 ## Question Types
 
-### Recall Questions
-"What is the time complexity of merge sort?"
+### Multiple Choice
+4 options, select best answer
 
-### Application Questions
-"Apply DFS to find connected components"
+### True/False
+Statement evaluation
 
-### Analysis Questions
-"Why does quicksort have O(n²) worst case?"
+### Short Answer (2-3 minutes)
+Write explanation or short code
 
-### Design Questions
-"Design an algorithm that solves X in Y time"
+### Code Completion
+Finish the function
 
-### Comparison Questions
-"Compare approaches for problem X"
+### Problem Solving
+Design or optimize algorithm
 
-### Theory Questions
-"Explain why this problem is NP-complete"
+### Matching
+Connect concepts to definitions
 
-## Sample Questions by Domain
+## Difficulty Levels
 
-### Foundations
-1. Define what a proof by contradiction is
-2. Prove: √2 is irrational
-3. Count permutations of n items
-4. Apply pigeonhole principle
-5. Define equivalence relation
+**Easy (5 min):** Basic recall, straightforward application
+**Medium (10 min):** Requires understanding and analysis
+**Hard (15 min):** Deep knowledge, synthesis, tricky edge cases
 
-### Algorithms
-1. Explain divide and conquer
-2. Implement binary search
-3. Design DP solution for knapsack
-4. Compare quicksort vs merge sort
-5. Prove greedy algorithm correctness
+## How Scoring Works
 
-### Data Structures
-1. When to use BST vs hash table?
-2. Implement balanced BST operation
-3. Design trie for autocomplete
-4. Compare array vs linked list
-5. Implement heap priority queue
+**Correct answer:**
+- Easy: +10 points
+- Medium: +15 points
+- Hard: +25 points
 
-### Complexity
-1. Solve T(n) = 2T(n/2) + n
-2. Explain Big O vs Big Theta
-3. Prove NP-completeness by reduction
-4. Determine complexity from code
-5. Analyze space complexity
-
-### Systems
-1. Explain cache hierarchy
-2. Describe page replacement algorithm
-3. Design deadlock prevention
-4. Explain TCP handshake
-5. Design consensus algorithm
+**Streak bonus:** 3+ correct → +5 bonus
+**Speed bonus:** Answer in <2 min → +5 bonus
+**Total possible:** 500 points per full quiz
 
 ## Quiz Modes
 
 ### Practice Mode
-- Review answers immediately
-- See explanations
+- Instant feedback on every question
+- Explanations provided
 - No time limit
-- Learn at your pace
+- Repeat unlimited
 
 ### Timed Mode
-- 30-60 seconds per question
-- Builds speed
-- Interview simulation
-- Shows your performance
+- 60 seconds per question
+- Speed bonus available
+- No feedback until end
+- Simulates interview
 
 ### Adaptive Mode
 - Questions adjust to your level
 - Start easy, increase difficulty
-- Focus on weak areas
-- Personalized learning
+- Focuses on weak areas
+- Personalized assessment
 
 ### Competitive Mode
-- Compare with others
-- Leaderboard
+- Leaderboards
+- Weekly challenges
 - Badges and achievements
-- Motivation
-
-## Scoring
-
-### Points System
-- Correct answer: +10 points
-- Partial credit: +5 points
-- Blank: 0 points
-- Incorrect: 0 points
-
-### Streak Bonus
-- 3 consecutive: +5 bonus
-- 5 consecutive: +10 bonus
-- 10 consecutive: +20 bonus
-
-### Speed Bonus
-- Answer in <10 seconds: +5 bonus
-- Answer in <5 seconds: +10 bonus
+- Community rankings
 
 ## Performance Tracking
 
-After each quiz:
-- Score and percentage
-- Time taken
-- Correct/incorrect breakdown
-- Topics to review
-- Recommendations
+```
+/quiz stats
 
-## Quiz Topics
+Overall Score: 342/500 (68%)
 
-### Most Popular
-1. "Solve for T(n) = 2T(n/2) + n"
-2. "Design an algorithm with O(n log n)"
-3. "Is this problem NP-complete?"
-4. "Implement XYZ data structure"
-5. "Explain cache coherence"
+By domain:
+  Foundations: 16/20 (80%) ✓ Mastery
+  Algorithms: 18/25 (72%) ~ Competent
+  Data Structures: 14/20 (70%) ~ Competent
+  Complexity: 10/15 (67%) ~ Learning
+  Systems: 12/20 (60%) ~ Needs work ← Focus here
 
-### Trending
-- New algorithm problems
-- Recent tech questions
-- Interview favorites
-- Community contributions
+Weak topics:
+  1. NP-completeness (50%)
+  2. Memory management (55%)
+  3. Distributed systems (60%)
 
-### Seasonal
-- Interview prep (January, September)
-- University exams (December, May)
-- Internship season (May, August)
+Recommended action:
+  1. Review complexity theory fundamentals
+  2. Take systems quiz again (medium difficulty)
+  3. Study distributed consensus (CAP theorem)
+
+Streaks:
+  Current: 3 correct
+  Best: 8 correct
+  Days active: 12/30
+```
+
+## Quiz Badges
+
+🥉 **Bronze:** Score 50%+ on any domain  
+🥈 **Silver:** Score 80%+ on any domain  
+🥇 **Gold:** Score 90%+ on any domain  
+💎 **Platinum:** Score 95%+ on all domains  
+🌟 **Streak Master:** 10+ consecutive correct  
+⚡ **Speed Demon:** Answer 5 hard in <5min  
+🎓 **CS Scholar:** Master all domains (90%+)  
+
+## Interview Simulation
+
+**Simulate actual interview:**
+```
+/quiz interview-prep
+
+Conditions:
+- 3 problems in 90 minutes
+- Time tracking
+- No explanations until end
+- Difficulty: Medium-Hard
+- Mix of domains
+
+Topics selected:
+1. DP Algorithm (15 min)
+2. System Design (30 min)
+3. Complexity Analysis (10 min)
+
+Result: Score + feedback
+```
 
 ## Tips for Success
 
-### Before Quiz
-- Review related materials
-- Review prerequisites
-- Warm up with practice
-- Clear your mind
+**Before quiz:**
+- Review related material
+- Have paper/whiteboard ready
+- Quiet, distraction-free space
 
-### During Quiz
-- Read carefully
+**During quiz:**
+- Read question carefully
 - Think before answering
-- Manage time
 - Flag difficult questions
+- Review if time permits
 
-### After Quiz
-- Review mistakes
-- Study explanations
-- Practice weak areas
-- Take follow-up quiz
+**After quiz:**
+- Review all explanations
+- Understand wrong answers
+- Identify weak areas
+- Schedule remedial study
 
-## Quiz Recommendations
+## Continuous Learning
 
-**Just starting?**
-→ Take Foundations Easy Quiz
+**Recommended flow:**
+1. Take Foundations quiz → 70% pass? → Study more
+2. Study foundations 1 week
+3. Take quiz again → 80% pass? → Move on
+4. Repeat for each domain
+5. Full assessment after all
+6. Focused revision on weak areas
+7. Final mastery assessment
 
-**Preparing for interviews?**
-→ Take Interview Questions Comprehensive
+**Typical timeline:**
+- Foundations: 1 week
+- Algorithms: 2-3 weeks
+- Data Structures: 1-2 weeks
+- Complexity: 1-2 weeks
+- Systems: 1-2 weeks
+- **Total: 6-10 weeks to mastery**
 
-**Want to gauge level?**
-→ Take [Domain] Hard Quiz
+---
 
-**Need to improve speed?**
-→ Take Timed Mode quizzes
-
-**Want balanced assessment?**
-→ Take All Comprehensive Quiz
-
-## Next Steps
-
-1. Choose a domain
-2. Select difficulty level
-3. Choose quiz mode
-4. Answer questions honestly
-5. Review results
-6. Study weak areas
-7. Take follow-up quiz
-
-## Resources
-
-After quizzes, dive deeper:
-- Use `/learn` for structured learning
-- Use `/problem` for practice
-- Use `/analyze` for theory
-- Check recommended skills
-- Join study groups
-
-**Test yourself now!**
+**Assess your knowledge:** `/quiz foundations easy` to start! 📝

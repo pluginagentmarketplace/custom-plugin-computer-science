@@ -1,211 +1,248 @@
 # /analyze
 
-Analyze algorithm complexity, performance, and correctness. Understand the theoretical and practical performance characteristics.
+Analyze algorithm complexity, performance characteristics, and optimization opportunities.
 
-## Usage
-
-```
-/analyze [algorithm-name]
-/analyze time-complexity [code]
-/analyze space-complexity [code]
-/analyze [problem] approach
-```
-
-## Examples
+## Quick Usage
 
 ```
-/analyze merge-sort
-Analyze merge sort: complexity, properties, when to use
-
-/analyze time-complexity bubble-sort
-Detailed time complexity analysis of bubble sort
-
-/analyze binary-search tradeoffs
-Discuss binary search vs linear search trade-offs
-
-/analyze quicksort worst-case
-Understand quicksort worst-case behavior and mitigation
+/analyze [algorithm-name]        → Full analysis
+/analyze time [algorithm]        → Time complexity deep dive
+/analyze space [algorithm]       → Space complexity breakdown
+/analyze compare [alg1] [alg2]   → Head-to-head comparison
+/analyze optimize [code]         → Find optimization opportunities
+/analyze [time] [limit]          → Estimate feasibility for input size
 ```
 
 ## Complexity Analysis Guide
 
-### Time Complexity
+### Understanding Big O
 
-**Count Operations**
-1. Identify primitive operations
-2. Count operations in loops
-3. Sum up total
-4. Find dominant term
-5. Express in Big O notation
+**What it means:**
+- O(n): Linear - doubles when input doubles
+- O(n²): Quadratic - 4× when input doubles
+- O(n log n): Linearithmic - optimal for comparison sorts
+- O(log n): Logarithmic - excellent, few operations
+- O(2ⁿ): Exponential - infeasible for n>20
 
-**Recurrence Relations**
+**Practical limits (10⁸ operations/second):**
 ```
-T(n) = a·T(n/b) + f(n)
+n=100:
+  O(n): instant (100 ops)
+  O(n log n): instant (665 ops)
+  O(n²): 10ms (10,000 ops)
+  O(n³): 1 second (1,000,000 ops)
+  O(2ⁿ): IMPOSSIBLE
 
-Solve using:
-- Substitution method
-- Recursion tree
-- Master Theorem
-```
+n=1,000:
+  O(n): instant (1,000 ops)
+  O(n log n): instant (9,965 ops)
+  O(n²): 10ms (1,000,000 ops)
+  O(n³): 1 second (1,000,000,000 ops) ← borderline
+  O(2ⁿ): IMPOSSIBLE
 
-**Master Theorem**
-```
-Case 1: f(n) < n^log_b(a)  →  O(n^log_b(a))
-Case 2: f(n) = n^log_b(a)  →  O(n^log_b(a) log n)
-Case 3: f(n) > n^log_b(a)  →  O(f(n))
-```
-
-### Space Complexity
-
-**Count Memory Usage**
-1. Input space
-2. Auxiliary space (extra)
-3. Output space
-4. Recursion stack depth
-
-**Example Analysis**
-```
-Merge Sort:
-- Input: O(n)
-- Auxiliary: O(n) for temp arrays
-- Stack: O(log n) for recursion
-- Total: O(n)
+n=1,000,000:
+  O(n): 10ms (1,000,000 ops)
+  O(n log n): 200ms (19,931,568 ops)
+  O(n²): IMPOSSIBLE (1,000,000,000,000 ops)
 ```
 
-## Common Algorithm Analysis
+### Analyzing Your Code
 
-### Sorting Algorithms
-
-| Algorithm | Best | Average | Worst | Space | Stable |
-|-----------|------|---------|-------|-------|--------|
-| Bubble | O(n) | O(n²) | O(n²) | O(1) | Yes |
-| Insertion | O(n) | O(n²) | O(n²) | O(1) | Yes |
-| Merge | O(n log n) | O(n log n) | O(n log n) | O(n) | Yes |
-| Quick | O(n log n) | O(n log n) | O(n²) | O(log n) | No |
-| Heap | O(n log n) | O(n log n) | O(n log n) | O(1) | No |
-| Counting | O(n+k) | O(n+k) | O(n+k) | O(k) | Yes |
-
-### Search Algorithms
-
-| Algorithm | Time | Space | Conditions |
-|-----------|------|-------|------------|
-| Linear | O(n) | O(1) | Any array |
-| Binary | O(log n) | O(1) | Sorted array |
-| Hash | O(1) avg | O(n) | Hash table |
-| BST | O(log n) | O(1) | Balanced tree |
-
-### Data Structure Operations
-
-| Structure | Access | Search | Insert | Delete | Space |
-|-----------|--------|--------|--------|--------|-------|
-| Array | O(1) | O(n) | O(n) | O(n) | O(n) |
-| Linked List | O(n) | O(n) | O(1)* | O(1)* | O(n) |
-| BST | O(log n) | O(log n) | O(log n) | O(log n) | O(n) |
-| Hash Table | - | O(1) avg | O(1) avg | O(1) avg | O(n) |
-| Heap | O(n) | O(n) | O(log n) | O(log n) | O(n) |
-
-## Analyzing Your Code
-
-### Step 1: Identify Loops
+**Step 1: Identify loops**
 ```
-for i in 1 to n:        // O(n)
-    for j in 1 to n:    // O(n)
-        operation()     // O(1)
+for i in range(n):          # O(n) iterations
+    for j in range(n):      # O(n) iterations
+        operation()         # O(1) operation
+        
+Result: O(n) × O(n) × O(1) = O(n²)
 ```
-Nested loops: O(n) × O(n) = O(n²)
 
-### Step 2: Identify Recursion
+**Step 2: Identify recursion**
 ```
 def fib(n):
-    if n <= 1:
-        return n
+    if n ≤ 1: return n
     return fib(n-1) + fib(n-2)
-```
+
 Recurrence: T(n) = T(n-1) + T(n-2)
-Solution: O(2ⁿ)
-
-### Step 3: Identify Data Structure Operations
-```
-hash_set.add(x)      // O(1) average
-sorted_list.search() // O(log n) or O(n)
-heap.push()          // O(log n)
+Analysis: O(2ⁿ) exponential! ← SLOW
 ```
 
-### Step 4: Combine
-- Sequential: Add complexities
-- Nested: Multiply complexities
-- Conditional: Take maximum
-- Recursion: Solve recurrence
-
-## Analysis Patterns
-
-### Binary Search Pattern
+**Step 3: Identify data structure operations**
 ```
-T(n) = T(n/2) + O(1)
-Master Theorem Case 2: O(log n)
+hash_set.add(x)         # O(1) average
+array.search(x)         # O(n) linear scan
+sorted_array.search(x)  # O(log n) binary search (if searching)
+heap.push(x)            # O(log n)
 ```
 
-### Merge Sort Pattern
+## Algorithm Analysis Examples
+
+### Merge Sort
 ```
-T(n) = 2·T(n/2) + O(n)
-Master Theorem Case 2: O(n log n)
-```
+Algorithm:
+1. Split array in half: O(1)
+2. Recursively sort left: T(n/2)
+3. Recursively sort right: T(n/2)
+4. Merge two halves: O(n)
 
-### Fibonacci Pattern
-```
-T(n) = T(n-1) + T(n-2)
-Solution: O(2ⁿ) → optimize with DP to O(n)
-```
+Recurrence: T(n) = 2T(n/2) + O(n)
 
-## Worst vs Average Case
+Master Theorem:
+a=2, b=2, f(n)=O(n)
+log_b(a) = log₂(2) = 1
+f(n) = O(n¹) = n^log_b(a)
 
-**Worst Case**: Critical for:
-- Guarantees needed
-- Real-time systems
-- Safety-critical code
-
-**Average Case**: Practical for:
-- Typical scenarios
-- Real-world performance
-- Benchmarking
-
-## Practical Complexity
-
-```
-Operation per second: ~10⁸ operations
-
-n=10:         No limit
-n=100:        10⁸ ÷ 10⁴ ≈ 10,000 operations ok
-n=10⁴:        100 operations max (O(n²) barely works)
-n=10⁶:        100 operations max (need O(n log n))
-n=10⁸:        10 operations max (need O(1) or O(log n))
+Result: Case 2 → O(n log n)
 ```
 
-## Interview Questions
+### Binary Search
+```
+Algorithm:
+1. Check middle: O(1)
+2. Recursively search half: T(n/2)
 
-- Analyze time complexity of: [code snippet]
-- Solve recurrence: T(n) = 2T(n/2) + n
-- Compare binary search vs hash table
-- Worst case for quicksort? How to avoid?
-- Design algorithm with O(n log n) time
-- Prove lower bound for comparison sort
-- Optimize this algorithm
-- Trade-off between time and space
+Recurrence: T(n) = T(n/2) + O(1)
+
+Master Theorem:
+a=1, b=2, f(n)=O(1)
+log_b(a) = 0
+f(n) = O(1) > n⁰ = 1 (barely)
+
+Result: Special case → O(log n)
+```
+
+### Dynamic Programming (Fibonacci)
+```
+Recurrence: T(n) = T(n-1) + T(n-2) + O(1)
+Naive: O(2ⁿ) exponential (tree of calls)
+Memoized: O(n) linear (each state computed once)
+Tabulated: O(n) with O(n) space
+Optimized: O(n) with O(1) space (keep 2 values)
+```
+
+## Comparing Algorithms
+
+**Sort comparison:**
+```
+/analyze compare merge quick
+
+Merge Sort vs Quick Sort:
+┌──────────┬─────────────┬──────────────────┐
+│ Aspect   │ Merge Sort  │ Quick Sort       │
+├──────────┼─────────────┼──────────────────┤
+│ Avg Time │ O(n log n)  │ O(n log n)       │
+│ Worst    │ O(n log n)  │ O(n²) on sorted  │
+│ Space    │ O(n) extra  │ O(log n) stack   │
+│ Stable   │ Yes         │ No               │
+│ In-place │ No          │ Yes              │
+│ Cache    │ Bad         │ Good             │
+│ When     │ Stability   │ Average case     │
+└──────────┴─────────────┴──────────────────┘
+
+Verdict: Quick sort usually faster (cache), merge sort more predictable.
+```
+
+## Space Complexity Analysis
+
+### Array Example
+```
+def create_matrix(n):
+    matrix = [[0] * n for _ in range(n)]  # O(n²) space
+    return matrix
+
+Space: O(n²) for 2D array storage
+```
+
+### Tree Example
+```
+def recursive_sum(node):
+    if not node: return 0
+    return node.val + recursive_sum(node.left) + recursive_sum(node.right)
+
+Space: O(h) where h = height
+       For balanced: O(log n)
+       For skewed: O(n) worst case
+```
+
+## Optimization Strategies
+
+### Reduce Loops
+```
+Before: O(n²) nested loops checking all pairs
+for i in range(n):
+    for j in range(i+1, n):
+        if arr[i] + arr[j] == target:
+            return (i, j)
+
+After: O(n) using hash set
+seen = set()
+for i, num in enumerate(arr):
+    complement = target - num
+    if complement in seen:
+        return (i, j)
+    seen.add(num)
+```
+
+### Better Data Structure
+```
+Before: O(n) searching in array
+index = arr.index(x)
+
+After: O(1) with hash set
+if x in hash_set:
+    ...
+```
+
+### Parallel Computing
+```
+Can parallelize some O(n²) work across P processors
+Result: O(n²/P) time + synchronization overhead
+Practical: Usually 4-8× speedup on 8-core CPU
+```
+
+## Common Mistakes
+
+**❌ Forgetting coefficient in loop:**
+```
+for i in range(n):
+    for j in range(i, n):  # Not n times, ~n/2 times
+        ...
+Analysis: O(n²/2) → still O(n²)
+```
+
+**❌ Misunderstanding hash complexity:**
+```
+for x in set:       # O(n) to iterate all
+    if x in set:    # O(1) per check
+# Total: O(n) not O(1)
+```
+
+**❌ Integer overflow:**
+```
+mid = (left + right) // 2  # Can overflow!
+mid = left + (right - left) // 2  # Safe
+```
 
 ## Tools & Resources
 
-- Big O Cheat Sheet
-- Time Complexity Visualizer
-- Recursion Tree Calculator
-- CLRS: Introduction to Algorithms
-- MIT 6.006: Analysis section
+- **Big-O Cheat Sheet:** Visual complexity guide
+- **Wolfram Alpha:** Recurrence relation solver
+- **Online Judge:** Submit and get runtime feedback
+- **Profiler:** Measure actual code performance
 
-## Next Steps
+## When to Optimize
 
-1. Choose an algorithm to analyze
-2. Count operations step by step
-3. Express in Big O notation
-4. Verify with examples
-5. Compare to other algorithms
-6. Discuss trade-offs
-7. Consider optimization opportunities
+**Rule of thumb:**
+1. Measure first (profiling)
+2. Optimize bottlenecks only
+3. Don't premature optimize
+4. Verify improvement is real
+
+**Usually:**
+- Algorithm choice matters most (10-1000× differences)
+- Implementation details matter less (1-10× differences)
+- Hardware matters least for small inputs
+
+---
+
+**Analyze before you code. Choose the right algorithm.** 📊
