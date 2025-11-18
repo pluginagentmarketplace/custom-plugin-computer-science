@@ -1,0 +1,100 @@
+{
+  "name": "developer-roadmap-plugin",
+  "version": "1.0.0",
+  "description": "Comprehensive learning plugin with 65+ developer roadmaps covering all major tech stacks, specializations, and career paths. 7 parallel agents analyze roadmaps with skill-based learning paths.",
+  "author": "Plugin Development Team",
+  "repository": "https://github.com/kamranahmedse/developer-roadmap",
+  "keywords": ["developer-roadmap", "learning-path", "skill-development", "roadmap", "career-development"],
+  "agents": [
+    {
+      "id": "frontend-specialist",
+      "name": "Frontend Development Specialist",
+      "file": "agents/01-frontend-specialist.md",
+      "description": "Expert in frontend technologies, frameworks, and UI/UX development"
+    },
+    {
+      "id": "backend-specialist",
+      "name": "Backend Development Specialist",
+      "file": "agents/02-backend-specialist.md",
+      "description": "Specialist in server-side development, databases, and APIs"
+    },
+    {
+      "id": "devops-specialist",
+      "name": "DevOps & Cloud Specialist",
+      "file": "agents/03-devops-specialist.md",
+      "description": "Expert in DevOps, cloud infrastructure, containerization, and orchestration"
+    },
+    {
+      "id": "data-ai-specialist",
+      "name": "Data Science & AI Specialist",
+      "file": "agents/04-data-ai-specialist.md",
+      "description": "Specialist in AI, machine learning, data science, and ML engineering"
+    },
+    {
+      "id": "languages-specialist",
+      "name": "Languages & Fundamentals Specialist",
+      "file": "agents/05-languages-specialist.md",
+      "description": "Expert in programming languages, computer science fundamentals, and core concepts"
+    },
+    {
+      "id": "architecture-specialist",
+      "name": "Architecture & Design Specialist",
+      "file": "agents/06-architecture-specialist.md",
+      "description": "Specialist in system design, architecture patterns, and software design"
+    },
+    {
+      "id": "security-specialist",
+      "name": "Security & Compliance Specialist",
+      "file": "agents/07-security-specialist.md",
+      "description": "Expert in cybersecurity, security practices, and compliance standards"
+    }
+  ],
+  "commands": [
+    {
+      "file": "commands/roadmap.md",
+      "description": "Browse and explore 65+ developer roadmaps by category"
+    },
+    {
+      "file": "commands/learning-path.md",
+      "description": "Get personalized learning path based on your role and goals"
+    },
+    {
+      "file": "commands/skills.md",
+      "description": "View required skills and learning resources for any role"
+    },
+    {
+      "file": "commands/assess.md",
+      "description": "Self-assess your knowledge level across different domains"
+    }
+  ],
+  "skills": [
+    {
+      "name": "frontend-development",
+      "file": "skills/frontend/SKILL.md"
+    },
+    {
+      "name": "backend-development",
+      "file": "skills/backend/SKILL.md"
+    },
+    {
+      "name": "devops-infrastructure",
+      "file": "skills/devops/SKILL.md"
+    },
+    {
+      "name": "data-science-ai",
+      "file": "skills/data-ai/SKILL.md"
+    },
+    {
+      "name": "programming-languages",
+      "file": "skills/languages/SKILL.md"
+    },
+    {
+      "name": "architecture-design",
+      "file": "skills/architecture/SKILL.md"
+    },
+    {
+      "name": "security-practices",
+      "file": "skills/security/SKILL.md"
+    }
+  ]
+}

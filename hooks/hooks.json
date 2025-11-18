@@ -1,0 +1,272 @@
+{
+  "hooks": [
+    {
+      "id": "roadmap-learning-flow",
+      "trigger": "user-command",
+      "event": "/learning-path",
+      "actions": [
+        {
+          "type": "invoke-agents",
+          "agents": [
+            "frontend-specialist",
+            "backend-specialist",
+            "devops-specialist",
+            "data-ai-specialist",
+            "languages-specialist",
+            "architecture-specialist",
+            "security-specialist"
+          ],
+          "parallel": true,
+          "description": "Invoke all 7 specialist agents in parallel to analyze learning requirements"
+        },
+        {
+          "type": "load-skills",
+          "skills": [
+            "frontend-development",
+            "backend-development",
+            "devops-infrastructure",
+            "data-science-ai",
+            "programming-languages",
+            "architecture-design",
+            "security-practices"
+          ],
+          "description": "Load relevant skills for the learning path"
+        },
+        {
+          "type": "generate-roadmap",
+          "source": "https://roadmap.sh",
+          "cache-duration": 3600,
+          "description": "Fetch and cache roadmaps from developer-roadmap"
+        }
+      ]
+    },
+    {
+      "id": "skill-assessment-flow",
+      "trigger": "user-command",
+      "event": "/assess",
+      "actions": [
+        {
+          "type": "load-skills",
+          "skills": [
+            "frontend-development",
+            "backend-development",
+            "devops-infrastructure",
+            "data-science-ai",
+            "programming-languages",
+            "architecture-design",
+            "security-practices"
+          ],
+          "description": "Load all skill modules for assessment"
+        },
+        {
+          "type": "generate-assessment",
+          "domains": [
+            "frontend",
+            "backend",
+            "devops",
+            "data-science",
+            "architecture",
+            "security",
+            "fundamentals"
+          ],
+          "description": "Generate personalized assessment questions"
+        },
+        {
+          "type": "track-progress",
+          "store": "local",
+          "description": "Store assessment results for progress tracking"
+        }
+      ]
+    },
+    {
+      "id": "roadmap-browsing",
+      "trigger": "user-command",
+      "event": "/roadmap",
+      "actions": [
+        {
+          "type": "invoke-agents",
+          "agents": [
+            "frontend-specialist",
+            "backend-specialist",
+            "devops-specialist",
+            "data-ai-specialist",
+            "languages-specialist",
+            "architecture-specialist",
+            "security-specialist"
+          ],
+          "parallel": true,
+          "description": "Invoke specialist agents to provide expert guidance on roadmaps"
+        },
+        {
+          "type": "fetch-roadmaps",
+          "source": "https://roadmap.sh",
+          "cache": true,
+          "cache-key": "roadmap-{role}",
+          "description": "Fetch requested roadmaps from developer-roadmap repository"
+        }
+      ]
+    },
+    {
+      "id": "skill-exploration",
+      "trigger": "user-command",
+      "event": "/skills",
+      "actions": [
+        {
+          "type": "load-skills",
+          "skills": [
+            "frontend-development",
+            "backend-development",
+            "devops-infrastructure",
+            "data-science-ai",
+            "programming-languages",
+            "architecture-design",
+            "security-practices"
+          ],
+          "description": "Load all skill modules"
+        },
+        {
+          "type": "invoke-specialist",
+          "agent": "auto-select",
+          "description": "Automatically select best specialist agent for the skill"
+        },
+        {
+          "type": "provide-resources",
+          "include": [
+            "documentation",
+            "tutorials",
+            "courses",
+            "projects"
+          ],
+          "description": "Provide comprehensive learning resources"
+        }
+      ]
+    },
+    {
+      "id": "progress-tracking",
+      "trigger": "scheduled",
+      "schedule": "weekly",
+      "actions": [
+        {
+          "type": "analyze-learning",
+          "description": "Analyze learning progress across all domains"
+        },
+        {
+          "type": "generate-report",
+          "format": "markdown",
+          "include": [
+            "completed-skills",
+            "in-progress",
+            "upcoming-goals",
+            "recommendations"
+          ],
+          "description": "Generate weekly progress report"
+        },
+        {
+          "type": "update-roadmap",
+          "description": "Update personalized roadmap based on progress"
+        }
+      ]
+    },
+    {
+      "id": "resource-caching",
+      "trigger": "scheduled",
+      "schedule": "daily",
+      "actions": [
+        {
+          "type": "cache-roadmaps",
+          "source": "https://roadmap.sh",
+          "ttl": 86400,
+          "description": "Cache all roadmaps for offline access"
+        },
+        {
+          "type": "cache-skills",
+          "skills": [
+            "frontend-development",
+            "backend-development",
+            "devops-infrastructure",
+            "data-science-ai",
+            "programming-languages",
+            "architecture-design",
+            "security-practices"
+          ],
+          "ttl": 86400,
+          "description": "Cache skill resources"
+        }
+      ]
+    },
+    {
+      "id": "skill-recommendation",
+      "trigger": "context",
+      "context": [
+        "user-mentions-role",
+        "user-asks-about-skill",
+        "user-needs-learning"
+      ],
+      "actions": [
+        {
+          "type": "identify-role",
+          "description": "Identify relevant developer role from context"
+        },
+        {
+          "type": "invoke-specialist",
+          "auto-select": true,
+          "description": "Automatically invoke best specialist agent"
+        },
+        {
+          "type": "load-skills",
+          "role-specific": true,
+          "description": "Load skills relevant to identified role"
+        },
+        {
+          "type": "provide-recommendations",
+          "type": "personalized",
+          "description": "Provide personalized learning recommendations"
+        }
+      ]
+    }
+  ],
+  "agent-pool": {
+    "type": "parallel",
+    "max-concurrent": 7,
+    "agents": [
+      "frontend-specialist",
+      "backend-specialist",
+      "devops-specialist",
+      "data-ai-specialist",
+      "languages-specialist",
+      "architecture-specialist",
+      "security-specialist"
+    ],
+    "fallback": "general-assistance"
+  },
+  "caching": {
+    "enabled": true,
+    "ttl": 3600,
+    "strategies": [
+      {
+        "type": "roadmaps",
+        "ttl": 86400,
+        "location": "./cache/roadmaps"
+      },
+      {
+        "type": "skills",
+        "ttl": 86400,
+        "location": "./cache/skills"
+      },
+      {
+        "type": "assessments",
+        "ttl": 604800,
+        "location": "./cache/assessments"
+      }
+    ]
+  },
+  "error-handling": {
+    "failed-agent": "invoke-fallback",
+    "network-error": "use-cache",
+    "timeout": 30000,
+    "retry": {
+      "max-attempts": 3,
+      "backoff": "exponential"
+    }
+  }
+}
