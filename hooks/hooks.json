@@ -1,0 +1,334 @@
+{
+  "hooks": [
+    {
+      "id": "learning-path-invocation",
+      "trigger": "user-command",
+      "event": "/learn",
+      "description": "Invoke all 5 experts in parallel for comprehensive learning guidance",
+      "actions": [
+        {
+          "type": "invoke-agents-parallel",
+          "agents": [
+            "foundations-expert",
+            "algorithms-expert",
+            "data-structures-expert",
+            "complexity-theory-expert",
+            "systems-expert"
+          ],
+          "mode": "concurrent",
+          "timeout": 5000,
+          "description": "All 5 agents analyze learning requirements simultaneously"
+        },
+        {
+          "type": "load-skills-context",
+          "skills": [
+            "cs-foundations",
+            "algorithms",
+            "data-structures",
+            "complexity-analysis",
+            "systems-computing",
+            "advanced-topics"
+          ],
+          "priority": "high",
+          "description": "Load comprehensive learning resources"
+        },
+        {
+          "type": "track-learning-progress",
+          "store": "user-session",
+          "description": "Initialize or resume learning progress tracking"
+        }
+      ]
+    },
+    {
+      "id": "problem-solving-assistance",
+      "trigger": "user-command",
+      "event": "/problem",
+      "description": "Provide problem-solving guidance with hints and solutions",
+      "actions": [
+        {
+          "type": "auto-select-expert",
+          "agents": ["algorithms-expert", "data-structures-expert"],
+          "criteria": "problem-category",
+          "description": "Select best expert based on problem type"
+        },
+        {
+          "type": "load-skills",
+          "skills": ["algorithms", "data-structures"],
+          "description": "Load problem-solving resources"
+        },
+        {
+          "type": "provide-hints",
+          "levels": 3,
+          "progressive": true,
+          "description": "Provide 3-level progressive hints"
+        },
+        {
+          "type": "track-solution-attempt",
+          "metrics": ["time-spent", "hints-used", "correctness"],
+          "description": "Track learning metrics"
+        }
+      ]
+    },
+    {
+      "id": "complexity-analysis-support",
+      "trigger": "user-command",
+      "event": "/analyze",
+      "description": "Deep algorithm complexity analysis",
+      "actions": [
+        {
+          "type": "invoke-agent",
+          "agent": "complexity-theory-expert",
+          "description": "Invoke complexity expert"
+        },
+        {
+          "type": "load-skills",
+          "skills": ["complexity-analysis"],
+          "description": "Load complexity analysis resources"
+        },
+        {
+          "type": "analyze-complexity",
+          "provide": ["time", "space", "master-theorem", "comparisons"],
+          "description": "Provide comprehensive complexity breakdown"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-assessment",
+      "trigger": "user-command",
+      "event": "/quiz",
+      "description": "Adaptive knowledge assessment across domains",
+      "actions": [
+        {
+          "type": "invoke-agents-parallel",
+          "agents": [
+            "foundations-expert",
+            "algorithms-expert",
+            "data-structures-expert",
+            "complexity-theory-expert",
+            "systems-expert"
+          ],
+          "description": "All experts contribute quiz questions"
+        },
+        {
+          "type": "generate-adaptive-quiz",
+          "domains": ["foundations", "algorithms", "data-structures", "complexity", "systems"],
+          "difficulty": "adaptive",
+          "description": "Generate questions adapted to user level"
+        },
+        {
+          "type": "track-quiz-performance",
+          "metrics": ["score", "time", "accuracy-by-topic", "weak-areas"],
+          "persist": true,
+          "description": "Track performance for improvement"
+        }
+      ]
+    },
+    {
+      "id": "context-aware-expertise",
+      "trigger": "context-analysis",
+      "context": [
+        "user-mentions-algorithm",
+        "user-discusses-optimization",
+        "user-asks-complexity",
+        "user-describes-problem",
+        "user-seeks-interview-help"
+      ],
+      "description": "Auto-invoke appropriate expertise based on context",
+      "actions": [
+        {
+          "type": "analyze-user-intent",
+          "extract": ["domain", "difficulty", "goal"],
+          "description": "Understand what user actually needs"
+        },
+        {
+          "type": "select-best-expert",
+          "matching": "intent-to-expertise",
+          "description": "Match user need with best expert"
+        },
+        {
+          "type": "load-contextual-skills",
+          "dynamic": true,
+          "description": "Load skills relevant to context"
+        },
+        {
+          "type": "provide-targeted-guidance",
+          "depth": "matched-to-need",
+          "description": "Provide guidance at appropriate level"
+        }
+      ]
+    },
+    {
+      "id": "progress-synchronization",
+      "trigger": "scheduled",
+      "schedule": "on-session-end",
+      "description": "Sync progress across all learning activities",
+      "actions": [
+        {
+          "type": "aggregate-metrics",
+          "sources": ["learning", "problems", "quizzes", "analysis"],
+          "description": "Collect all learning metrics"
+        },
+        {
+          "type": "identify-weak-areas",
+          "analysis": "performance-based",
+          "description": "Find topics needing more work"
+        },
+        {
+          "type": "generate-recommendations",
+          "format": "actionable",
+          "description": "Suggest next steps"
+        },
+        {
+          "type": "update-user-profile",
+          "persist": true,
+          "description": "Save progress for next session"
+        }
+      ]
+    },
+    {
+      "id": "skill-auto-loading",
+      "trigger": "on-demand",
+      "keywords": [
+        "algorithm", "complexity", "array", "tree", "graph", 
+        "dp", "dynamic", "sort", "search", "system", "network",
+        "database", "distributed", "concurrent", "proof", "induction"
+      ],
+      "description": "Auto-load relevant skills when mentioned",
+      "actions": [
+        {
+          "type": "detect-skill-keyword",
+          "description": "Identify which skill needed"
+        },
+        {
+          "type": "load-skill-async",
+          "priority": "high",
+          "description": "Load skill in background"
+        },
+        {
+          "type": "provide-relevant-context",
+          "description": "Show relevant examples/explanations"
+        }
+      ]
+    },
+    {
+      "id": "error-recovery",
+      "trigger": "on-error",
+      "description": "Graceful error handling and recovery",
+      "actions": [
+        {
+          "type": "catch-exception",
+          "log": true,
+          "description": "Log error for debugging"
+        },
+        {
+          "type": "fallback-to-general-agent",
+          "agent": "foundations-expert",
+          "description": "Use general expert if specific fails"
+        },
+        {
+          "type": "provide-user-message",
+          "message": "Let me help with that differently...",
+          "description": "Inform user gracefully"
+        }
+      ]
+    },
+    {
+      "id": "daily-challenge",
+      "trigger": "scheduled",
+      "schedule": "daily",
+      "description": "Suggest daily challenge problem",
+      "actions": [
+        {
+          "type": "select-daily-problem",
+          "criteria": ["user-level", "weak-areas", "variety"],
+          "description": "Pick problem matching user level"
+        },
+        {
+          "type": "provide-motivation",
+          "message": "Daily challenge unlocked!",
+          "description": "Encourage consistent practice"
+        }
+      ]
+    },
+    {
+      "id": "weekly-summary",
+      "trigger": "scheduled",
+      "schedule": "weekly",
+      "description": "Generate weekly learning summary",
+      "actions": [
+        {
+          "type": "analyze-weekly-data",
+          "metrics": ["topics-covered", "problems-solved", "quizzes-taken", "hours-spent"],
+          "description": "Analyze week's learning"
+        },
+        {
+          "type": "generate-report",
+          "format": "markdown",
+          "include": ["progress", "achievements", "weak-areas", "recommendations"],
+          "description": "Create comprehensive summary"
+        },
+        {
+          "type": "set-weekly-goals",
+          "interactive": true,
+          "description": "Help user set next week's goals"
+        }
+      ]
+    }
+  ],
+  "agent-pool": {
+    "type": "concurrent",
+    "max-concurrent": 5,
+    "agents": [
+      "foundations-expert",
+      "algorithms-expert",
+      "data-structures-expert",
+      "complexity-theory-expert",
+      "systems-expert"
+    ],
+    "fallback": "foundations-expert",
+    "timeout": 30000
+  },
+  "caching": {
+    "enabled": true,
+    "ttl": 3600,
+    "strategies": [
+      {
+        "type": "skill-resources",
+        "ttl": 86400,
+        "location": "./cache/skills"
+      },
+      {
+        "type": "quiz-questions",
+        "ttl": 604800,
+        "location": "./cache/quizzes"
+      },
+      {
+        "type": "problem-statements",
+        "ttl": 604800,
+        "location": "./cache/problems"
+      },
+      {
+        "type": "user-progress",
+        "ttl": 3600,
+        "location": "./cache/progress"
+      }
+    ]
+  },
+  "error-handling": {
+    "strategy": "graceful-degradation",
+    "failed-agent": "invoke-fallback-expert",
+    "network-error": "use-cache-and-notify",
+    "timeout": 30000,
+    "retry": {
+      "max-attempts": 3,
+      "backoff": "exponential",
+      "delays": [1000, 2000, 4000]
+    }
+  },
+  "performance": {
+    "prioritize": ["user-experience", "response-time"],
+    "background-loading": true,
+    "compression": true,
+    "optimize-cache": true
+  }
+}
