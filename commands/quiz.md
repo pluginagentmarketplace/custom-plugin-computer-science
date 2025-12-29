@@ -1,3 +1,9 @@
+---
+name: quiz
+description: /quiz
+allowed-tools: Read
+---
+
 # /quiz
 
 Test your Computer Science knowledge with adaptive, comprehensive quizzes across all domains.

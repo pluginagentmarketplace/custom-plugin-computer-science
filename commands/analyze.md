@@ -1,3 +1,9 @@
+---
+name: analyze
+description: /analyze
+allowed-tools: Read
+---
+
 # /analyze
 
 Analyze algorithm complexity, performance characteristics, and optimization opportunities.

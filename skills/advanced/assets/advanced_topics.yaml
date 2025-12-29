@@ -1,0 +1,73 @@
+# Advanced CS Topics Configuration
+# Version: 1.0.0
+
+distributed_systems:
+  consensus:
+    - name: "Paxos"
+      guarantees: ["safety", "liveness"]
+    - name: "Raft"
+      components: ["leader election", "log replication"]
+    - name: "Byzantine Fault Tolerance"
+      tolerance: "f faults with 3f+1 nodes"
+
+  cap_theorem:
+    pick_two:
+      - "Consistency"
+      - "Availability"
+      - "Partition Tolerance"
+    real_world: "Partition tolerance required, choose C or A"
+
+  consistency_models:
+    - "Strong Consistency"
+    - "Eventual Consistency"
+    - "Causal Consistency"
+    - "Read-your-writes"
+
+cryptography:
+  symmetric:
+    - "AES"
+    - "ChaCha20"
+  asymmetric:
+    - "RSA"
+    - "ECC"
+  hash:
+    - "SHA-256"
+    - "BLAKE3"
+  protocols:
+    - "TLS 1.3"
+    - "Signal Protocol"
+
+machine_learning:
+  paradigms:
+    - "Supervised Learning"
+    - "Unsupervised Learning"
+    - "Reinforcement Learning"
+  neural_networks:
+    - "CNN"
+    - "RNN/LSTM"
+    - "Transformer"
+    - "GAN"
+
+compilers:
+  phases:
+    - "Lexical Analysis"
+    - "Syntax Analysis"
+    - "Semantic Analysis"
+    - "Intermediate Code"
+    - "Optimization"
+    - "Code Generation"
+  optimizations:
+    - "Dead code elimination"
+    - "Loop unrolling"
+    - "Inlining"
+    - "Register allocation"
+
+quantum_computing:
+  gates:
+    - "Hadamard"
+    - "CNOT"
+    - "Toffoli"
+  algorithms:
+    - "Shor (factoring)"
+    - "Grover (search)"
+    - "VQE (chemistry)"

@@ -1,0 +1,55 @@
+# Data Structures Templates
+# Version: 1.0.0
+
+linear:
+  array:
+    access: "O(1)"
+    search: "O(n)"
+    insert: "O(n)"
+    delete: "O(n)"
+
+  linked_list:
+    access: "O(n)"
+    search: "O(n)"
+    insert: "O(1)"
+    delete: "O(1)"
+
+  stack:
+    operations: ["push", "pop", "peek"]
+    complexity: "O(1)"
+    use_cases: ["function calls", "undo operations", "expression evaluation"]
+
+  queue:
+    operations: ["enqueue", "dequeue", "front"]
+    complexity: "O(1)"
+    variants: ["circular", "priority", "deque"]
+
+trees:
+  binary_tree:
+    properties: ["root", "left", "right", "parent"]
+    traversals: ["inorder", "preorder", "postorder", "level-order"]
+
+  binary_search_tree:
+    search: "O(log n) average"
+    insert: "O(log n) average"
+    delete: "O(log n) average"
+
+  balanced_trees:
+    - name: "AVL"
+      balance_factor: "[-1, 0, 1]"
+    - name: "Red-Black"
+      properties: ["root black", "no red-red", "black height equal"]
+    - name: "B-Tree"
+      use_case: "disk-based storage"
+
+hash:
+  hash_table:
+    average_access: "O(1)"
+    worst_access: "O(n)"
+    collision_handling: ["chaining", "open addressing"]
+
+graph:
+  representations:
+    - "adjacency_matrix"
+    - "adjacency_list"
+    - "edge_list"

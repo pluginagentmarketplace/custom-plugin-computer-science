@@ -1,0 +1,15 @@
+{
+  "name": "pluginagentmarketplace-computer-science",
+  "owner": {
+    "name": "Plugin Agent Marketplace",
+    "email": "pluginagentmarketplace@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "computer-science-plugin",
+      "source": "./",
+      "description": "Claude Code plugin for computer science development",
+      "version": "1.0.0"
+    }
+  ]
+}

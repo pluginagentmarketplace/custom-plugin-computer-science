@@ -1,0 +1,54 @@
+# Complexity Theory Classes
+# Version: 1.0.0
+
+time_complexity:
+  P:
+    description: "Problems solvable in polynomial time"
+    examples: ["sorting", "shortest path", "MST"]
+
+  NP:
+    description: "Problems verifiable in polynomial time"
+    examples: ["SAT", "Hamiltonian path", "subset sum"]
+
+  NP_Complete:
+    description: "Hardest problems in NP"
+    examples: ["3-SAT", "vertex cover", "traveling salesman"]
+    reduction: "All NP problems reduce to NP-Complete"
+
+  NP_Hard:
+    description: "At least as hard as NP-Complete"
+    examples: ["halting problem", "optimization problems"]
+
+  PSPACE:
+    description: "Problems solvable with polynomial space"
+    examples: ["QSAT", "game theory problems"]
+
+space_complexity:
+  L:
+    description: "Logarithmic space"
+    examples: ["graph connectivity queries"]
+
+  NL:
+    description: "Non-deterministic logarithmic space"
+    examples: ["path existence"]
+
+  PSPACE:
+    description: "Polynomial space"
+
+computability:
+  decidable:
+    description: "Halting on all inputs"
+    examples: ["finite automata languages"]
+
+  undecidable:
+    description: "No algorithm exists"
+    examples: ["halting problem", "Post correspondence"]
+
+  semi_decidable:
+    description: "Halts on 'yes' instances"
+    examples: ["Turing machine acceptance"]
+
+reductions:
+  polynomial_time: "Most common for NP-Completeness"
+  log_space: "For L and NL"
+  turing: "For undecidability"

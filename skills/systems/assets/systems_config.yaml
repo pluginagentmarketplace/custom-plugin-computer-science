@@ -1,0 +1,73 @@
+# Computer Systems Configuration
+# Version: 1.0.0
+
+operating_systems:
+  process_management:
+    scheduling:
+      - "Round Robin"
+      - "Priority Scheduling"
+      - "Shortest Job First"
+      - "Multilevel Feedback Queue"
+    synchronization:
+      - "Mutex"
+      - "Semaphore"
+      - "Monitor"
+      - "Condition Variable"
+
+  memory_management:
+    paging: true
+    segmentation: true
+    virtual_memory: true
+    page_replacement:
+      - "LRU"
+      - "FIFO"
+      - "Optimal"
+      - "Clock"
+
+  file_systems:
+    - "ext4"
+    - "NTFS"
+    - "APFS"
+    - "ZFS"
+
+networking:
+  osi_layers:
+    - layer: 7
+      name: "Application"
+      protocols: ["HTTP", "FTP", "SMTP", "DNS"]
+    - layer: 4
+      name: "Transport"
+      protocols: ["TCP", "UDP"]
+    - layer: 3
+      name: "Network"
+      protocols: ["IP", "ICMP", "ARP"]
+    - layer: 2
+      name: "Data Link"
+      protocols: ["Ethernet", "WiFi"]
+    - layer: 1
+      name: "Physical"
+
+computer_architecture:
+  pipeline_stages:
+    - "Fetch"
+    - "Decode"
+    - "Execute"
+    - "Memory"
+    - "Writeback"
+  cache_levels: ["L1", "L2", "L3"]
+  parallelism:
+    - "ILP"
+    - "SIMD"
+    - "MIMD"
+
+databases:
+  acid:
+    - "Atomicity"
+    - "Consistency"
+    - "Isolation"
+    - "Durability"
+  isolation_levels:
+    - "Read Uncommitted"
+    - "Read Committed"
+    - "Repeatable Read"
+    - "Serializable"

@@ -1,247 +1,258 @@
-# Computer Science Plugin
+<div align="center">
 
-A precise, focused Claude Code plugin for mastering Computer Science fundamentals. 5 expert agents guide you through algorithms, data structures, complexity theory, and systems.
+<!-- Animated Typing Banner -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=2E9EF7&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Computer+Science+Assistant;5+Agents+%7C+6+Skills;Claude+Code+Plugin" alt="Computer Science Assistant" />
 
-## 🚀 Features
+<br/>
 
-### 5 Expert Agents (Parallel Processing)
-1. **CS Foundations Expert** - Discrete math, logic, proofs, computational thinking
-2. **Algorithms Expert** - Algorithm design, patterns, optimization strategies
-3. **Data Structures Expert** - Choosing and implementing optimal structures
-4. **Complexity Theory Expert** - Big O analysis, NP-completeness, computability
-5. **Systems Expert** - CPU architecture, OS, networks, distributed systems
+<!-- Badge Row 1: Status Badges -->
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)](https://github.com/pluginagentmarketplace/custom-plugin-computer-science/releases)
+[![License](https://img.shields.io/badge/License-Custom-yellow?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Production-brightgreen?style=for-the-badge)](#)
+[![SASMP](https://img.shields.io/badge/SASMP-v1.3.0-blueviolet?style=for-the-badge)](#)
 
-### 4 Powerful Commands
-- **`/learn`** - Guided Computer Science learning paths (4-24 weeks)
-- **`/problem`** - Solve algorithmic and data structure problems with hints
-- **`/analyze`** - Analyze algorithm complexity and performance
-- **`/quiz`** - Test your CS knowledge with adaptive quizzes
+<!-- Badge Row 2: Content Badges -->
+[![Agents](https://img.shields.io/badge/Agents-5-orange?style=flat-square&logo=robot)](#-agents)
+[![Skills](https://img.shields.io/badge/Skills-6-purple?style=flat-square&logo=lightning)](#-skills)
+[![Commands](https://img.shields.io/badge/Commands-4-green?style=flat-square&logo=terminal)](#-commands)
 
-### 6 Skill Modules
-- CS Foundations (Math, logic, proofs)
-- Algorithms (Design, patterns, optimization)
-- Data Structures (Selection, implementation, trade-offs)
-- Complexity Analysis (Big O, P vs NP, computability)
-- Systems Computing (Architecture, OS, networks, distributed)
-- Advanced Topics (Advanced data structures, parallel computing, ML theory)
+<br/>
 
-## 📦 Installation
-
-```bash
-# Claude Code auto-loads from this directory
-# Or add to ~/.claude-code/plugins/
-```
-
-## 🎯 Quick Start
-
-### 1. Start Learning
-```
-/learn fundamentals
-Foundation path: 4 weeks of discrete math, logic, proofs
-
-/learn full-path
-Complete CS education: 24 weeks covering everything
-```
-
-### 2. Solve Problems
-```
-/problem two-sum
-Get help with the two-sum algorithmic problem
-
-/problem array medium
-Find medium difficulty array problems
-```
-
-### 3. Analyze Complexity
-```
-/analyze merge-sort
-Detailed complexity analysis of merge sort
-
-/analyze time-complexity quicksort
-Understand quicksort worst-case behavior
-```
-
-### 4. Test Your Knowledge
-```
-/quiz algorithms medium
-Test your algorithms knowledge with medium difficulty
-
-/quiz all comprehensive
-Full assessment across all CS domains
-```
-
-## 🏗️ Plugin Structure
-
-```
-custom-plugin-computer-science/
-├── .claude-plugin/
-│   └── plugin.json                    # Plugin manifest
-├── agents/                            # 5 CS experts
-│   ├── 01-foundations-expert.md
-│   ├── 02-algorithms-expert.md
-│   ├── 03-data-structures-expert.md
-│   ├── 04-complexity-theory-expert.md
-│   └── 05-systems-expert.md
-├── commands/                          # 4 slash commands
-│   ├── learn.md
-│   ├── problem.md
-│   ├── analyze.md
-│   └── quiz.md
-├── skills/                            # 6 skill modules
-│   ├── foundations/SKILL.md
-│   ├── algorithms/SKILL.md
-│   ├── data-structures/SKILL.md
-│   ├── theory/SKILL.md
-│   ├── systems/SKILL.md
-│   └── advanced/SKILL.md
-├── hooks/
-│   └── hooks.json                     # Automation & parallel processing
-└── README.md
-```
-
-## 📚 Learning Paths
-
-| Path | Duration | Focus |
-|------|----------|-------|
-| **Foundations** | 4 weeks | Math, logic, proofs, computational thinking |
-| **Algorithms** | 8 weeks | Algorithm design, patterns, optimization |
-| **Data Structures** | 6 weeks | Arrays, lists, trees, graphs, heaps, hashes |
-| **Systems** | 10 weeks | CPU, OS, networks, distributed systems |
-| **Full Path** | 24 weeks | Complete CS education |
-
-## 🔄 5 Agents Working in Parallel
-
-All 5 agents collaborate simultaneously:
-- Foundations Expert analyzes math concepts
-- Algorithms Expert reviews design patterns
-- Data Structures Expert evaluates implementations
-- Complexity Expert analyzes theory
-- Systems Expert covers architecture
-
-Result: **Comprehensive CS guidance in seconds!**
-
-## 📊 Plugin Statistics
-
-| Component | Count | Status |
-|-----------|-------|--------|
-| Agents | 5 | ✅ Expert |
-| Commands | 4 | ✅ Powerful |
-| Skills | 6 | ✅ Complete |
-| Learning Hours | 100+ | ✅ Comprehensive |
-| Practice Problems | 500+ | ✅ Included |
-
-## 🎓 Core Topics Covered
-
-### Foundations (Week 1)
-- Boolean logic and gates
-- Set theory and relations
-- Proof techniques
-- Combinatorics
-
-### Algorithms (Weeks 2-3)
-- Sorting: merge, quick, heap, insertion
-- Searching: linear, binary, hash
-- Divide and conquer
-- Dynamic programming
-
-### Data Structures (Weeks 4-5)
-- Linear: arrays, lists, stacks, queues
-- Trees: BST, AVL, Red-Black, heaps
-- Hash tables and sets
-- Tries and graphs
-
-### Complexity (Week 6)
-- Big O, Big Theta, Big Omega
-- Recurrence relations
-- Master Theorem
-- NP-completeness
-
-### Systems (Weeks 7-8)
-- CPU caching and pipelining
-- Virtual memory and paging
-- Process scheduling
-- TCP/IP and networking
-- Consensus algorithms
-
-### Advanced (Week 9+)
-- Segment trees, Fenwick trees
-- Advanced algorithms
-- Parallel computing
-- Quantum algorithms
-
-## 🚀 Why This Plugin?
-
-✅ **Focused**: Computer Science fundamentals only (no bloat)
-✅ **Precise**: Clear explanations with complexity analysis
-✅ **Practical**: 500+ problems with solutions
-✅ **Structured**: Learning paths from beginner to expert
-✅ **Interactive**: Quizzes, problems, and analysis tools
-✅ **Expert Guidance**: 5 specialists guide you
-✅ **Interview Ready**: Master interview questions
-
-## 💡 Use Cases
-
-- **Learning CS**: Structured paths from scratch to expert
-- **Interview Prep**: Master algorithms and complexity analysis
-- **Problem Solving**: Get help with specific problems
-- **Knowledge Assessment**: Quiz to find weak areas
-- **Complexity Analysis**: Analyze algorithm performance
-
-## 📖 Example Usage
-
-**Beginner Learning**:
-```
-/learn fundamentals
-→ 4-week foundation building
-→ Discrete math, logic, proofs
-→ Ready for algorithms
-```
-
-**Preparing for Interviews**:
-```
-/quiz all comprehensive
-→ Find weak areas
-→ /learn algorithms
-→ /problem [company-favorite]
-→ /analyze [solution]
-```
-
-**Solving LeetCode**:
-```
-/problem merge-k-lists hint
-→ Get progressive hints
-→ /analyze solution
-→ Understand complexity
-→ /quiz data-structures
-```
-
-## 🔐 Quality Assurance
-
-✅ Official Claude Code plugin format
-✅ YAML frontmatter on all agents
-✅ Production-ready code structure
-✅ Comprehensive documentation
-✅ Error handling and fallbacks
-✅ Parallel processing optimized
-✅ Interview-verified content
-
-## 📞 Plugin Commands
-
-| Command | Purpose | Example |
-|---------|---------|---------|
-| `/learn` | Start learning path | `/learn algorithms` |
-| `/problem` | Solve problems with hints | `/problem two-sum hint` |
-| `/analyze` | Analyze complexity | `/analyze merge-sort` |
-| `/quiz` | Test knowledge | `/quiz algorithms hard` |
-
-## 🌟 Next Steps
-
-1. Load plugin: `./custom-plugin-computer-science`
-2. Try: `/learn fundamentals`
-3. Solve: `/problem two-sum`
-4. Analyze: `/analyze binary-search`
-5. Quiz: `/quiz foundations medium`
+<!-- Quick CTA Row -->
+[📦 **Install Now**](#-quick-start) · [🤖 **Explore Agents**](#-agents) · [📖 **Documentation**](#-documentation) · [⭐ **Star this repo**](https://github.com/pluginagentmarketplace/custom-plugin-computer-science)
 
 ---
 
-**Master Computer Science. Build Strong Foundations. Ace Interviews. 🎓**
+### What is this?
+
+> **Computer Science Assistant** is a Claude Code plugin with **5 agents** and **6 skills** for computer science development.
+
+</div>
+
+---
+
+## 📑 Table of Contents
+
+<details>
+<summary>Click to expand</summary>
+
+- [Quick Start](#-quick-start)
+- [Features](#-features)
+- [Agents](#-agents)
+- [Skills](#-skills)
+- [Commands](#-commands)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+</details>
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Claude Code CLI v2.0.27+
+- Active Claude subscription
+
+### Installation (Choose One)
+
+<details open>
+<summary><strong>Option 1: From Marketplace (Recommended)</strong></summary>
+
+```bash
+# Step 1️⃣ Add the marketplace
+/plugin add marketplace pluginagentmarketplace/custom-plugin-computer-science
+
+# Step 2️⃣ Install the plugin
+/plugin install computer-science-plugin@pluginagentmarketplace-computer-science
+
+# Step 3️⃣ Restart Claude Code
+# Close and reopen your terminal/IDE
+```
+
+</details>
+
+<details>
+<summary><strong>Option 2: Local Installation</strong></summary>
+
+```bash
+# Clone the repository
+git clone https://github.com/pluginagentmarketplace/custom-plugin-computer-science.git
+cd custom-plugin-computer-science
+
+# Load locally
+/plugin load .
+
+# Restart Claude Code
+```
+
+</details>
+
+### ✅ Verify Installation
+
+After restart, you should see these agents:
+
+```
+computer-science-plugin:04-complexity-theory-expert
+computer-science-plugin:05-systems-expert
+computer-science-plugin:03-data-structures-expert
+computer-science-plugin:02-algorithms-expert
+computer-science-plugin:01-foundations-expert
+```
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🤖 **5 Agents** | Specialized AI agents for computer science tasks |
+| 🛠️ **6 Skills** | Reusable capabilities with Golden Format |
+| ⌨️ **4 Commands** | Quick slash commands |
+| 🔄 **SASMP v1.3.0** | Full protocol compliance |
+
+---
+
+## 🤖 Agents
+
+### 5 Specialized Agents
+
+| # | Agent | Purpose |
+|---|-------|---------|
+| 1 | **04-complexity-theory-expert** | Master algorithm analysis, Big O notation, complexity classe |
+| 2 | **05-systems-expert** | Master computer systems from digital logic through distribut |
+| 3 | **03-data-structures-expert** | Master data structure selection, implementation, and optimiz |
+| 4 | **02-algorithms-expert** | Master algorithm design, patterns, and problem-solving. Expe |
+| 5 | **01-foundations-expert** | Master computational thinking, discrete mathematics, formal  |
+
+---
+
+## 🛠️ Skills
+
+### Available Skills
+
+| Skill | Description | Invoke |
+|-------|-------------|--------|
+| `advanced` | Explore advanced CS topics including advanced data structure | `Skill("computer-science-plugin:advanced")` |
+| `data-structures` | Master selection and implementation of data structures. Lear | `Skill("computer-science-plugin:data-structures")` |
+| `theory` | Analyze algorithm complexity, understand Big O notation, com | `Skill("computer-science-plugin:theory")` |
+| `algorithms` | Master algorithm design, common patterns, optimization techn | `Skill("computer-science-plugin:algorithms")` |
+| `foundations` | Master discrete mathematics, logic, formal proofs, and compu | `Skill("computer-science-plugin:foundations")` |
+| `systems` | Understand computer systems from digital logic through opera | `Skill("computer-science-plugin:systems")` |
+
+---
+
+## ⌨️ Commands
+
+| Command | Description |
+|---------|-------------|
+| `/learn` | /learn |
+| `/problem` | /problem |
+| `/analyze` | /analyze |
+| `/quiz` | /quiz |
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [CHANGELOG.md](CHANGELOG.md) | Version history |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
+| [LICENSE](LICENSE) | License information |
+
+---
+
+## 📁 Project Structure
+
+<details>
+<summary>Click to expand</summary>
+
+```
+custom-plugin-computer-science/
+├── 📁 .claude-plugin/
+│   ├── plugin.json
+│   └── marketplace.json
+├── 📁 agents/              # 5 agents
+├── 📁 skills/              # 6 skills (Golden Format)
+├── 📁 commands/            # 4 commands
+├── 📁 hooks/
+├── 📄 README.md
+├── 📄 CHANGELOG.md
+└── 📄 LICENSE
+```
+
+</details>
+
+---
+
+## 📅 Metadata
+
+| Field | Value |
+|-------|-------|
+| **Version** | 1.0.0 |
+| **Last Updated** | 2025-12-29 |
+| **Status** | Production Ready |
+| **SASMP** | v1.3.0 |
+| **Agents** | 5 |
+| **Skills** | 6 |
+| **Commands** | 4 |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md).
+
+1. Fork the repository
+2. Create your feature branch
+3. Follow the Golden Format for new skills
+4. Submit a pull request
+
+---
+
+## ⚠️ Security
+
+> **Important:** This repository contains third-party code and dependencies.
+>
+> - ✅ Always review code before using in production
+> - ✅ Check dependencies for known vulnerabilities
+> - ✅ Follow security best practices
+> - ✅ Report security issues privately via [Issues](../../issues)
+
+---
+
+## 📝 License
+
+Copyright © 2025 **Dr. Umit Kacar** & **Muhsin Elcicek**
+
+Custom License - See [LICENSE](LICENSE) for details.
+
+---
+
+## 👥 Contributors
+
+<table>
+<tr>
+<td align="center">
+<strong>Dr. Umit Kacar</strong><br/>
+Senior AI Researcher & Engineer
+</td>
+<td align="center">
+<strong>Muhsin Elcicek</strong><br/>
+Senior Software Architect
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+**Made with ❤️ for the Claude Code Community**
+
+[![GitHub](https://img.shields.io/badge/GitHub-pluginagentmarketplace-black?style=for-the-badge&logo=github)](https://github.com/pluginagentmarketplace)
+
+</div>

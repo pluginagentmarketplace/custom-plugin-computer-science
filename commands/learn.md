@@ -1,3 +1,9 @@
+---
+name: learn
+description: /learn
+allowed-tools: Read
+---
+
 # /learn
 
 Start your Computer Science learning journey with expertly designed paths from beginner to master.

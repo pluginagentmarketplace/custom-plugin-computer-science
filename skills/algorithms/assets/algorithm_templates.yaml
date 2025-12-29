@@ -1,0 +1,52 @@
+# Algorithm Templates Configuration
+# Version: 1.0.0
+
+sorting:
+  comparison_based:
+    - name: "QuickSort"
+      complexity: "O(n log n) average"
+      space: "O(log n)"
+      stable: false
+    - name: "MergeSort"
+      complexity: "O(n log n)"
+      space: "O(n)"
+      stable: true
+    - name: "HeapSort"
+      complexity: "O(n log n)"
+      space: "O(1)"
+      stable: false
+
+  linear:
+    - name: "CountingSort"
+      complexity: "O(n + k)"
+      use_case: "Small range integers"
+    - name: "RadixSort"
+      complexity: "O(nk)"
+      use_case: "Fixed-length integers"
+
+searching:
+  - name: "BinarySearch"
+    complexity: "O(log n)"
+    requirement: "Sorted array"
+  - name: "LinearSearch"
+    complexity: "O(n)"
+    requirement: "None"
+
+graph:
+  traversal:
+    - "BFS"
+    - "DFS"
+  shortest_path:
+    - name: "Dijkstra"
+      complexity: "O((V+E) log V)"
+    - name: "BellmanFord"
+      complexity: "O(VE)"
+  minimum_spanning_tree:
+    - "Kruskal"
+    - "Prim"
+
+dynamic_programming:
+  patterns:
+    - "Memoization"
+    - "Tabulation"
+    - "Space Optimization"

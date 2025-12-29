@@ -1,3 +1,9 @@
+---
+name: problem
+description: /problem
+allowed-tools: Read
+---
+
 # /problem
 
 Solve algorithmic and data structure problems with expert guidance, hints, and solutions.

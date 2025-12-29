@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "Computer Science fundamentals plugin: algorithms, data structures, complexity analysis, and core CS theory. 5 expert agents guide you through every CS domain with precision.",
   "author": "CS Learning Team",
-  "keywords": ["computer-science", "algorithms", "data-structures", "complexity", "cs-fundamentals", "discrete-math"],
+  "keywords": [
+    "computer-science",
+    "algorithms",
+    "data-structures",
+    "complexity",
+    "cs-fundamentals",
+    "discrete-math"
+  ],
   "agents": [
     {
       "id": "foundations-expert",
@@ -79,5 +86,6 @@
       "name": "advanced-topics",
       "file": "skills/advanced/SKILL.md"
     }
-  ]
+  ],
+  "license": "SEE LICENSE IN LICENSE"
 }
