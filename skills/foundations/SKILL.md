@@ -1,6 +1,9 @@
 ---
 name: cs-foundations
 description: Master discrete mathematics, logic, formal proofs, and computational thinking. Build the mathematical foundation for all computer science.
+sasmp_version: "1.3.0"
+bonded_agent: 01-foundations-expert
+bond_type: PRIMARY_BOND
 ---
 
 # CS Foundations

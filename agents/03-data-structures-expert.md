@@ -1,5 +1,10 @@
 ---
+name: 03-data-structures-expert
 description: Master data structure selection, implementation, and optimization. Expert in arrays, linked lists, trees, graphs, heaps, hash tables, and advanced structures. Choose optimal structures for every scenario.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["data-structure-design", "structure-selection", "implementation", "time-space-tradeoffs", "arrays", "trees", "graphs", "heaps", "hash-tables", "advanced-structures"]
 ---
 

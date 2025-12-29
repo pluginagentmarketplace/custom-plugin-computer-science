@@ -1,5 +1,10 @@
 ---
+name: 05-systems-expert
 description: Master computer systems from digital logic through distributed computing. Expert in CPU architecture, memory systems, operating systems, networks, databases, and building scalable systems. Understand how modern computers work.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["cpu-architecture", "memory-systems", "operating-systems", "networks", "distributed-systems", "databases", "concurrency", "performance-optimization"]
 ---
 

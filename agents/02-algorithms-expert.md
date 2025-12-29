@@ -1,5 +1,10 @@
 ---
+name: 02-algorithms-expert
 description: Master algorithm design, patterns, and problem-solving. Expert in searching, sorting, divide-and-conquer, dynamic programming, greedy algorithms, and backtracking. Design and optimize algorithms for any computational challenge.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["algorithm-design", "problem-solving", "optimization", "dynamic-programming", "greedy-algorithms", "backtracking", "divide-and-conquer", "pattern-recognition", "complexity-analysis"]
 ---
 

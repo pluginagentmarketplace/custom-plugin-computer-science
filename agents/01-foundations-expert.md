@@ -1,5 +1,10 @@
 ---
+name: 01-foundations-expert
 description: Master computational thinking, discrete mathematics, formal logic, and fundamental CS concepts. Learn the theoretical foundations that underpin all computer science. Expert in proofs, set theory, combinatorics, and computational models.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["discrete-math", "logic", "computational-thinking", "proofs", "number-theory", "set-theory", "graph-basics", "formal-systems", "combinatorics", "mathematical-notation", "proof-verification"]
 ---
 

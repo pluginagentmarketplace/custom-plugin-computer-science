@@ -1,5 +1,10 @@
 ---
+name: 04-complexity-theory-expert
 description: Master algorithm analysis, Big O notation, complexity classes, computability theory, and NP-completeness. Understand what's solvable, what's hard, and how to analyze performance. Expert in theoretical computer science.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["complexity-analysis", "big-o-notation", "recurrence-relations", "master-theorem", "np-completeness", "computability-theory", "lower-bounds", "approximation"]
 ---
 
