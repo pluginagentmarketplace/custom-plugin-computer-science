@@ -1,9 +1,40 @@
 ---
 name: advanced-topics
 description: Explore advanced CS topics including advanced data structures, parallel computing, security, functional programming, and quantum computing.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cs-foundations-expert
+bond_type: SECONDARY_BOND
 ---
 
-# Advanced Topics
+# Advanced Topics Skill
+
+## Skill Metadata
+
+```yaml
+skill_config:
+  version: "1.0.0"
+  category: advanced
+  prerequisites: [cs-foundations, algorithms, data-structures, complexity-analysis]
+  estimated_time: "12-16 weeks"
+  difficulty: expert
+
+  parameter_validation:
+    topic:
+      type: string
+      enum: [advanced-ds, parallel, security, functional, quantum, ml-theory]
+      required: true
+
+  retry_config:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 500
+
+  observability:
+    log_level: INFO
+    metrics: [topic_usage, depth_level]
+```
+
+---
 
 ## Advanced Data Structures
 
@@ -11,29 +42,25 @@ description: Explore advanced CS topics including advanced data structures, para
 - Range minimum/maximum queries
 - Range updates
 - Time: O(log n) per operation
-- Use: Dynamic RMQ problems
 
 **Fenwick Trees (Binary Indexed Trees)**
 - Prefix sum queries and updates
 - Time: O(log n) per operation
 - Space: O(n)
-- Use: Coordinate compression, inversion count
 
 **Suffix Trees & Arrays**
 - Fast string pattern matching
 - Linear time construction
-- Use: Substring search, LCP array
 
 **Disjoint Set Union (Union-Find)**
 - Merging sets efficiently
-- Operations: union, find
-- Path compression and union by rank: nearly O(1)
-- Use: Connected components, cycle detection
+- Path compression + union by rank: nearly O(1)
 
 **Persistent Data Structures**
 - Maintain all historical versions
 - Immutable updates
-- Use: Time-travel queries, undo/redo
+
+---
 
 ## Parallel Computing
 
@@ -47,31 +74,13 @@ description: Explore advanced CS topics including advanced data structures, para
 - Reduction operations
 - Prefix sums in parallel
 - Sorting networks
-- Parallel matrix operations
 
 **GPU Computing**
 - CUDA/OpenCL
 - Massive parallelism
 - Memory hierarchy
-- Optimization techniques
 
-## Functional Programming
-
-**Core Concepts**
-- Pure functions (no side effects)
-- Immutability
-- First-class functions
-- Higher-order functions
-
-**Functional Data Structures**
-- Persistent lists
-- Functional trees
-- Lazy evaluation
-
-**Monads and Functors**
-- Haskell idioms
-- Error handling with Maybe/Either
-- Composition patterns
+---
 
 ## Security & Cryptography
 
@@ -86,10 +95,7 @@ description: Explore advanced CS topics including advanced data structures, para
 - Key exchange: Diffie-Hellman
 - Authentication: certificates
 
-**Attack Vectors**
-- Man-in-the-middle
-- Side-channel attacks
-- Timing attacks
+---
 
 ## Advanced Algorithms
 
@@ -97,7 +103,6 @@ description: Explore advanced CS topics including advanced data structures, para
 - Max flow problem
 - Ford-Fulkerson algorithm
 - Min-cost max-flow
-- Applications: bipartite matching
 
 **Linear Programming**
 - Simplex algorithm
@@ -106,13 +111,13 @@ description: Explore advanced CS topics including advanced data structures, para
 
 **Approximation Algorithms**
 - Approximation ratios
-- Polynomial-time approximation schemes (PTAS)
-- FPTAS for some problems
+- PTAS and FPTAS
 
 **Randomized Algorithms**
 - Monte Carlo vs Las Vegas
 - Quicksort randomization
-- Randomized load balancing
+
+---
 
 ## Quantum Computing
 
@@ -120,53 +125,23 @@ description: Explore advanced CS topics including advanced data structures, para
 - Qubits and superposition
 - Entanglement
 - Quantum gates
-- Measurement
 
 **Quantum Algorithms**
 - Shor's algorithm (factoring)
 - Grover's search
 - Quantum simulation
 
-## Machine Learning Theory
+---
 
-**Computational Learning Theory**
-- PAC learning
-- VC dimension
-- Generalization bounds
+## Troubleshooting
 
-**Optimization**
-- Gradient descent
-- Stochastic gradient descent
-- Convex optimization
+| Issue | Root Cause | Resolution |
+|-------|------------|------------|
+| Parallel race condition | Missing synchronization | Add locks or use atomic ops |
+| Segment tree wrong answer | Off-by-one in ranges | Verify range boundaries |
+| Crypto implementation weak | Timing attack vulnerability | Use constant-time operations |
 
-## Compiler Theory
-
-**Lexical Analysis**
-- Tokenization
-- Regular expressions
-- DFAs and NFAs
-
-**Syntax Analysis**
-- Context-free grammars
-- Parsing algorithms
-- Abstract syntax trees
-
-**Code Generation**
-- Intermediate representations
-- Code optimization
-- Machine code generation
-
-## Natural Language Processing
-
-**NLP Foundations**
-- Tokenization
-- Part-of-speech tagging
-- Parsing
-
-**Language Models**
-- N-gram models
-- Neural language models
-- Transformers
+---
 
 ## Competitive Programming
 
@@ -177,31 +152,7 @@ description: Explore advanced CS topics including advanced data structures, para
 - Meet in the middle
 - Small to large merging
 
-**Practice**
+**Practice Platforms**
 - Codeforces: 1000+ problems
 - TopCoder: Advanced competitions
 - ICPC: Team programming contests
-
-## Research Topics
-
-- Algorithms on massive graphs
-- Sketching and streaming algorithms
-- Hardness of approximation
-- Parameterized complexity
-- Quantum algorithms
-
-## Interview Strategy for Advanced
-
-- Show deep understanding
-- Discuss trade-offs
-- Propose optimizations
-- Analyze thoroughly
-- Mention relevant papers/techniques
-
-## Resources
-
-- Advanced Data Structures (courses)
-- Randomized Algorithms
-- Approximation Algorithms
-- Coding competitions
-- Research papers in your area of interest
