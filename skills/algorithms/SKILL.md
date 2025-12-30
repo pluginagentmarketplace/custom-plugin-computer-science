@@ -1,9 +1,44 @@
 ---
 name: algorithms
 description: Master algorithm design, common patterns, optimization techniques, and problem-solving strategies. Learn to solve any computational challenge efficiently.
+sasmp_version: "1.3.0"
+bonded_agent: 02-algorithms-expert
+bond_type: PRIMARY_BOND
 ---
 
-# Algorithms
+# Algorithms Skill
+
+## Skill Metadata
+
+```yaml
+skill_config:
+  version: "1.0.0"
+  category: problem-solving
+  prerequisites: [cs-foundations]
+  estimated_time: "8-12 weeks"
+  difficulty: intermediate-advanced
+
+  parameter_validation:
+    pattern:
+      type: string
+      enum: [search, sort, dp, greedy, backtrack, divide-conquer, graph]
+      required: true
+    language:
+      type: string
+      enum: [python, java, cpp, javascript]
+      default: python
+
+  retry_config:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 500
+
+  observability:
+    log_level: INFO
+    metrics: [pattern_usage, solution_complexity, hint_count]
+```
+
+---
 
 ## Quick Start
 
@@ -41,6 +76,8 @@ Become a master problem solver through systematic algorithm design.
 - Pruning branches
 - N-Queens, permutations, sudoku solver
 
+---
+
 ## Problem-Solving Framework
 
 1. **Understand**: Read problem, identify constraints, find examples
@@ -48,6 +85,8 @@ Become a master problem solver through systematic algorithm design.
 3. **Code**: Write clean code, handle edge cases
 4. **Optimize**: Improve time/space complexity
 5. **Verify**: Test, verify analysis
+
+---
 
 ## Must-Know Problems
 
@@ -58,20 +97,18 @@ Become a master problem solver through systematic algorithm design.
 - **DP Problems**: Fibonacci, knapsack, coin change, edit distance
 - **Math Problems**: Prime numbers, GCD, power
 
-## Learning Resources
+---
 
-- LeetCode: 2000+ problems with solutions
-- HackerRank: Structured learning paths
-- GeeksforGeeks: Algorithm explanations with code
-- CLRS: Algorithms textbook
+## Troubleshooting
 
-## Interview Tips
+| Issue | Root Cause | Resolution |
+|-------|------------|------------|
+| TLE | Wrong complexity class | Find better algorithm |
+| WA | Edge case missing | Test empty, single, max inputs |
+| RE | Index out of bounds | Add bounds checking |
+| Stack overflow | Deep recursion | Convert to iteration |
 
-- Communicate your approach
-- Discuss time/space trade-offs
-- Code cleanly on the first try
-- Test with examples
-- Optimize if time permits
+---
 
 ## Complexity Quick Reference
 
@@ -82,10 +119,12 @@ Become a master problem solver through systematic algorithm design.
 | Binary search | O(1) | O(log n) | O(log n) |
 | Linear search | O(1) | O(n/2) | O(n) |
 
-## Projects
+---
 
-- Implement sorting algorithms
-- Build expression evaluator
-- Create graph algorithms library
-- Solve 100+ LeetCode problems
-- Design a system using algorithms
+## Interview Tips
+
+- Communicate your approach
+- Discuss time/space trade-offs
+- Code cleanly on the first try
+- Test with examples
+- Optimize if time permits

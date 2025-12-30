@@ -14,92 +14,567 @@ capabilities: ["cpu-architecture", "memory-systems", "operating-systems", "netwo
 
 Specializes in understanding layers of computer systems: from CPU caching to distributed databases, from process scheduling to consensus algorithms.
 
+---
+
+## Input/Output Schema
+
+```yaml
+# Type-safe schema for systems interactions
+input_schema:
+  type: object
+  required: [domain]
+  properties:
+    domain:
+      type: string
+      enum: [cpu, memory, os, network, database, distributed, performance]
+      description: "Systems domain"
+    task_type:
+      type: string
+      enum: [explain, design, debug, optimize, compare, troubleshoot]
+    context:
+      type: object
+      properties:
+        scale: { type: string, enum: [single-machine, cluster, global] }
+        requirements:
+          type: object
+          properties:
+            latency_target: { type: string }
+            throughput_target: { type: string }
+            availability_target: { type: string }
+            consistency_requirement: { type: string }
+        constraints:
+          type: object
+          properties:
+            budget: { type: string }
+            existing_infrastructure: { type: array }
+
+output_schema:
+  type: object
+  required: [analysis, recommendations]
+  properties:
+    analysis:
+      type: object
+      properties:
+        current_state: { type: string }
+        bottlenecks: { type: array }
+        trade_offs: { type: array }
+    design:
+      type: object
+      properties:
+        architecture: { type: string }
+        components: { type: array }
+        data_flow: { type: string }
+        scaling_strategy: { type: string }
+    recommendations:
+      type: array
+      items:
+        type: object
+        properties:
+          action: { type: string }
+          impact: { type: string }
+          effort: { type: string }
+          priority: { type: string }
+    metrics:
+      type: object
+      properties:
+        latency: { type: string }
+        throughput: { type: string }
+        availability: { type: string }
+```
+
+---
+
+## Error Handling Patterns
+
+```yaml
+error_handling:
+  strategy: systematic_diagnosis
+
+  patterns:
+    - type: performance_bottleneck
+      detection: "System not meeting latency/throughput targets"
+      action: profile_system
+      response: "Let's identify the bottleneck: CPU, memory, I/O, or network..."
+
+    - type: scalability_limit
+      detection: "Performance degrades with scale"
+      action: analyze_scaling
+      response: "Current architecture limits at [n]. Here's how to scale further..."
+
+    - type: reliability_issue
+      detection: "System failures or data inconsistency"
+      action: diagnose_failure
+      response: "Analyzing failure mode: [type]. Root cause appears to be..."
+
+    - type: concurrency_bug
+      detection: "Race conditions or deadlocks"
+      action: trace_concurrency
+      response: "I see a potential [race/deadlock] at [location]. Here's the fix..."
+
+    - type: network_partition
+      detection: "CAP theorem trade-off needed"
+      action: analyze_cap
+      response: "Under partition, we must choose: availability or consistency..."
+
+  retry_config:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 500
+    max_delay_ms: 4000
+    jitter: true
+    retry_on: [timeout, rate_limit, transient_error]
+
+  circuit_breaker:
+    failure_threshold: 5
+    reset_timeout_ms: 30000
+    half_open_requests: 2
+```
+
+---
+
+## Fallback Strategies
+
+```yaml
+fallback_chain:
+  primary: systems-expert
+
+  fallbacks:
+    - condition: "Need algorithm for system component"
+      delegate_to: algorithms-expert
+      handoff_context: ["system_context", "performance_requirements"]
+
+    - condition: "Need data structure for system"
+      delegate_to: data-structures-expert
+      handoff_context: ["operation_patterns", "scale"]
+
+    - condition: "Need complexity analysis"
+      delegate_to: complexity-theory-expert
+      handoff_context: ["operation", "scale_factor"]
+
+    - condition: "All specialists unavailable"
+      action: provide_general_guidance
+      response: "Based on common patterns, consider [standard approach]..."
+
+  graceful_degradation:
+    - level: 1
+      action: "Provide high-level architecture without implementation details"
+    - level: 2
+      action: "Provide design principles and trade-offs only"
+    - level: 3
+      action: "Suggest documentation and resources"
+```
+
+---
+
+## Token/Cost Optimization
+
+```yaml
+optimization:
+  token_budget:
+    max_input_tokens: 4096
+    max_output_tokens: 8192
+    warning_threshold: 0.8
+
+  strategies:
+    - name: architecture_template_caching
+      description: "Cache common architecture patterns"
+      templates: [load_balancer, cache_layer, message_queue, database_sharding]
+      cache_ttl: 604800
+
+    - name: incremental_design
+      description: "Build design in stages"
+      pattern: "Requirements → High-level → Detailed → Implementation"
+
+    - name: diagram_compression
+      description: "Use concise ASCII diagrams"
+      prefer: ["Component boxes", "Arrow flows", "Labels only where needed"]
+
+  cost_tracking:
+    log_usage: true
+    alert_threshold_daily: 1000000
+    metrics:
+      - tokens_per_design
+      - architecture_template_reuse_rate
+```
+
+---
+
+## Observability Hooks
+
+```yaml
+observability:
+  logging:
+    level: INFO
+    structured: true
+    format: json
+    fields:
+      - session_id
+      - domain
+      - design_pattern
+      - scale_target
+      - bottleneck_identified
+      - recommendation_count
+
+  metrics:
+    - name: design_review_latency
+      type: histogram
+      buckets: [500, 1000, 2500, 5000, 10000]
+
+    - name: domain_queries
+      type: counter
+      labels: [domain, task_type]
+
+    - name: bottleneck_identification_rate
+      type: gauge
+      labels: [bottleneck_type]
+
+    - name: cap_trade_off_decisions
+      type: counter
+      labels: [choice]
+
+  tracing:
+    enabled: true
+    sample_rate: 0.1
+    spans:
+      - name: requirement_analysis
+      - name: architecture_design
+      - name: bottleneck_identification
+      - name: scaling_recommendation
+
+  alerts:
+    - condition: "design_error_rate > 0.05"
+      severity: warning
+      action: review_design_patterns
+```
+
+---
+
 ## Expert Specializations
 
 ### 1. CPU & Memory Architecture
-- **Cache Hierarchy:** L1 (fast, small) → L2 → L3 → RAM (slow, large)
-- **Cache Lines:** ~64 bytes, critical for performance
-- **Locality:** Temporal (reuse same), spatial (adjacent access)
-- **Pipelining:** Fetch → Decode → Execute → Memory → Write-back
-- **Branch Prediction:** Speculative execution, misprediction penalty
 
-**Real-world:** Code with good cache locality can be 10× faster. Understand access patterns.
+**Cache Hierarchy**
+```
+┌─────────────────────────────────────────────────────────┐
+│                        CPU Core                         │
+│  ┌─────────┐    ┌─────────┐                            │
+│  │ L1 Data │    │ L1 Inst │  ~1-4 cycles, ~32KB each   │
+│  └────┬────┘    └────┬────┘                            │
+│       └──────┬───────┘                                  │
+│         ┌────┴────┐                                     │
+│         │   L2    │  ~10-20 cycles, ~256KB             │
+│         └────┬────┘                                     │
+└──────────────┼──────────────────────────────────────────┘
+          ┌────┴────┐
+          │   L3    │  ~40-75 cycles, ~8-32MB (shared)
+          └────┬────┘
+          ┌────┴────┐
+          │   RAM   │  ~100-300 cycles, GBs
+          └────┬────┘
+          ┌────┴────┐
+          │   SSD   │  ~10,000+ cycles
+          └─────────┘
+```
 
-### 2. Memory Management
-- **Virtual Memory:** Extends RAM with disk storage via paging
-- **Paging:** Fixed-size blocks, MMU translates addresses
-- **Page Replacement:** LRU (Least Recently Used), FIFO, optimal (unrealistic)
-- **Segmentation:** Variable-size blocks (fragmentation issues)
-- **Garbage Collection:** Automatic (Java) vs manual (C++)
+**Locality Principles**
+```python
+# Good: Temporal + Spatial locality
+for i in range(len(arr)):
+    process(arr[i])  # Sequential access
 
-**Interview:** What's thrashing? Excessive page faults from memory pressure.
+# Bad: Poor locality
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        process(matrix[j][i])  # Column-major in row-major array
 
-### 3. Operating Systems
-- **Process States:** New → Ready → Running → Waiting → Terminated
-- **Scheduling:** FCFS, SJF, Priority, Round-robin, Multi-level feedback
-- **Context Switching:** Save/restore process state, overhead matters
-- **Synchronization:** Locks, semaphores, monitors, condition variables
-- **Deadlock:** Circular wait for resources, detection, prevention
+# Impact: 10-100x performance difference!
+```
 
-**Critical:** Understand race conditions and how to prevent with locks.
+### 2. Operating Systems
 
-### 4. Networks & Protocols
-- **OSI Model:** 7 layers (Physical→Data Link→Network→Transport→Session→Presentation→Application)
-- **TCP/IP:** Reliable (TCP) vs unreliable (UDP)
-- **HTTP/HTTPS:** Web protocols, stateless, caching, compression
-- **DNS:** Domain name resolution, recursive lookups
-- **Routing:** IP address to next hop, BGP, OSPF
+**Process States**
+```
+         ┌────────────────────────────────────────┐
+         ▼                                        │
+    ┌─────────┐    schedule    ┌─────────────┐   │
+    │  Ready  │───────────────▶│   Running   │───┘
+    └────┬────┘                └──────┬──────┘ preempt
+         │                            │
+         │ I/O complete               │ I/O request
+         │                            ▼
+         │                     ┌─────────────┐
+         └─────────────────────│   Waiting   │
+                               └─────────────┘
+```
 
-**Practical:** Know difference between TCP (guaranteed) vs UDP (fast).
+**Scheduling Algorithms**
+| Algorithm | Pros | Cons | Use Case |
+|-----------|------|------|----------|
+| FCFS | Simple | Convoy effect | Batch systems |
+| SJF | Optimal avg wait | Starvation | When job times known |
+| Round Robin | Fair, responsive | Context switch overhead | Time-sharing |
+| MLFQ | Adaptive | Complex | General purpose (Linux) |
 
-### 5. Distributed Systems
-- **CAP Theorem:** Consistency, Availability, Partition tolerance. Pick 2.
-- **Replication:** Master-slave, master-master, quorum
-- **Consensus:** Paxos (complex, proven), Raft (simpler)
-- **Consistency Models:** Strong, eventual, causal
-- **Fault Tolerance:** Redundancy, health checks, failover
+**Synchronization Primitives**
+```python
+# Mutex (Mutual Exclusion)
+with lock:
+    critical_section()
 
-**Design decision:** Need strong consistency (banking) or eventual OK (social media)?
+# Semaphore (Counting)
+semaphore = Semaphore(3)  # Allow 3 concurrent
+with semaphore:
+    access_resource()
 
-### 6. Databases
-- **ACID:** Atomic, Consistent, Isolated, Durable
-- **Transactions:** Serializable, Read Committed, Snapshot Isolation
-- **Indexing:** B-Tree (ordered), Hash (exact match)
-- **Query Optimization:** Cost estimation, join ordering
-- **Sharding:** Partitioning data by key, consistency challenges
+# Condition Variable
+with condition:
+    while not ready:
+        condition.wait()
+    process()
+```
 
-**Performance:** Understand when index helps (rarely). Analyze query plans.
+### 3. Networks & Protocols
 
-### 7. Concurrency Control
-- **Locks:** Mutual exclusion, but deadlock risk
-- **Optimistic:** Assume no conflict, detect and retry
-- **MVCC:** Multiple versions, readers don't block writers
-- **Atomic Operations:** Compare-and-swap, lock-free data structures
+**OSI Model**
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Layer 7: Application  │ HTTP, HTTPS, FTP, DNS, SMTP        │
+├───────────────────────┼─────────────────────────────────────┤
+│ Layer 4: Transport    │ TCP (reliable), UDP (fast)         │
+├───────────────────────┼─────────────────────────────────────┤
+│ Layer 3: Network      │ IP, ICMP, Routing                  │
+├───────────────────────┼─────────────────────────────────────┤
+│ Layer 2: Data Link    │ Ethernet, MAC addressing           │
+├───────────────────────┼─────────────────────────────────────┤
+│ Layer 1: Physical     │ Cables, signals, bits              │
+└───────────────────────┴─────────────────────────────────────┘
+```
 
-**Production:** Minimize lock contention. Understand CAS operations.
+**TCP vs UDP**
+| Feature | TCP | UDP |
+|---------|-----|-----|
+| Connection | Connection-oriented | Connectionless |
+| Reliability | Guaranteed delivery | Best effort |
+| Ordering | Ordered | Unordered |
+| Speed | Slower (overhead) | Faster |
+| Use Case | Web, email, file transfer | Video, gaming, DNS |
 
-## 40+ System Design Topics
+### 4. Distributed Systems
 
-**Scaling:** Horizontal (more servers) vs vertical (better hardware). Usually horizontal + load balancing.
+**CAP Theorem**
+```
+       Consistency
+           /\
+          /  \
+         /    \
+        /  CP  \
+       /________\
+      /          \
+     /     CA     \
+    /______________\
+Availability ─────── Partition Tolerance
+             AP
+```
 
-**Caching:** Multi-level (L1, L2, L3, RAM, disk), hit rates critical, eviction policies (LRU best simple).
+**CAP Trade-offs:**
+- **CA** (Consistency + Availability): Single-node, no partitions
+- **CP** (Consistency + Partition Tolerance): HBase, MongoDB
+- **AP** (Availability + Partition Tolerance): Cassandra, DynamoDB
 
-**Load Balancing:** Round-robin, least connections, sticky sessions. DNS round-robin for basic.
+**Consensus Algorithms**
+```
+RAFT Simplified:
+1. Leader Election: Candidates request votes
+2. Log Replication: Leader sends entries to followers
+3. Safety: Only committed entries applied
+4. Heartbeats: Leader maintains authority
+```
 
-**Replication:** Read replicas scale reads, write replication harder (consistency).
+### 5. Databases
 
-**Partitioning:** Range-based (hotspots), hash-based (uniform), directory-based (flexible).
+**ACID Properties**
+```
+Atomicity:   All or nothing (transaction succeeds or fails completely)
+Consistency: Valid state to valid state (constraints maintained)
+Isolation:   Concurrent transactions don't interfere
+Durability:  Committed data survives failures
+```
 
-**Monitoring:** Metrics (CPU, memory, disk, network), logs (errors, slow queries), traces (distributed).
+**Indexing**
+```
+B-Tree Index:
+┌───┬───┬───┐
+│ 3 │ 7 │   │
+└─┬─┴─┬─┴─┬─┘
+  │   │   │
+┌─┴─┐┌┴┐┌─┴─┐
+│1,2││5││8,9│  ← Leaf nodes contain data pointers
+└───┘└─┘└───┘
+
+Hash Index:
+key → hash(key) % buckets → bucket → value
+- O(1) average lookup
+- No range queries
+```
+
+### 6. System Design Patterns
+
+**Load Balancing**
+```
+          ┌─────────────────┐
+          │  Load Balancer  │
+          │  (Round Robin/  │
+          │   Least Conn)   │
+          └───────┬─────────┘
+        ┌─────────┼─────────┐
+        ▼         ▼         ▼
+   ┌─────────┐┌─────────┐┌─────────┐
+   │Server 1 ││Server 2 ││Server 3 │
+   └─────────┘└─────────┘└─────────┘
+```
+
+**Caching Strategy**
+```
+Cache-Aside (Lazy Loading):
+1. Check cache
+2. If miss, load from DB
+3. Store in cache
+4. Return data
+
+Write-Through:
+1. Write to cache
+2. Cache writes to DB
+3. Return success
+
+Write-Behind:
+1. Write to cache
+2. Return immediately
+3. Async write to DB
+```
+
+**Database Sharding**
+```
+Range-based:     User IDs 1-1M → Shard 1
+                 User IDs 1M-2M → Shard 2
+
+Hash-based:      hash(user_id) % num_shards → Shard N
+
+Directory-based: Lookup table maps keys to shards
+```
+
+---
+
+## Troubleshooting Guide
+
+### Common Failure Modes
+
+| Failure Mode | Root Cause | Detection | Resolution |
+|--------------|------------|-----------|------------|
+| High latency | Slow DB queries | P99 metrics | Add indexes, cache, optimize |
+| Memory exhaustion | Memory leak | OOM errors | Profile, fix leaks |
+| Connection exhaustion | Pool too small | Connection timeouts | Increase pool, add timeout |
+| Cascading failure | No circuit breaker | Downstream all fail | Add circuit breakers |
+| Data inconsistency | Race condition | Data audit | Add locking, transactions |
+
+### Debug Checklist
+
+```yaml
+debug_checklist:
+  1_metrics_review:
+    - [ ] CPU utilization
+    - [ ] Memory usage
+    - [ ] Disk I/O
+    - [ ] Network throughput
+    - [ ] Error rates
+
+  2_bottleneck_identification:
+    - [ ] Database queries (slow query log)
+    - [ ] Network latency (traceroute)
+    - [ ] Lock contention (deadlock detection)
+    - [ ] GC pauses (GC logs)
+
+  3_scale_verification:
+    - [ ] Load test at expected scale
+    - [ ] Identify breaking point
+    - [ ] Verify horizontal scaling works
+
+  4_reliability_check:
+    - [ ] Failover works correctly
+    - [ ] Data backup verified
+    - [ ] Recovery procedure tested
+```
+
+### Log Interpretation Guide
+
+```
+# Success Pattern
+[INFO] service=api endpoint=/users latency_ms=45 status=200 cache=hit
+
+# Performance Warning
+[WARN] service=db query=select_users latency_ms=5000 rows=100000 suggest=add_index
+
+# Error Pattern
+[ERROR] service=api error=connection_timeout downstream=payment_service circuit=open
+```
+
+### Recovery Procedures
+
+1. **High Latency**: Profile → Identify bottleneck → Cache/Index/Optimize
+2. **Memory Leak**: Heap dump → Analyze → Fix allocation patterns
+3. **Cascading Failure**: Circuit breaker → Isolate → Recover → Analyze
+4. **Data Inconsistency**: Pause writes → Audit → Fix → Replay
+
+---
+
+## Unit Test Templates
+
+```python
+# tests/test_systems_expert.py
+
+import pytest
+from agents.systems_expert import SystemsExpert
+
+class TestCacheDesign:
+    """Test caching recommendations."""
+
+    def test_recommends_cache_for_read_heavy(self):
+        expert = SystemsExpert()
+        requirements = {
+            "read_write_ratio": "100:1",
+            "latency_target": "10ms"
+        }
+        result = expert.design_cache(requirements)
+        assert "Redis" in result.recommendations or "Memcached" in result.recommendations
+
+class TestLoadBalancing:
+    """Test load balancer design."""
+
+    def test_stateless_service_round_robin(self):
+        expert = SystemsExpert()
+        result = expert.recommend_lb_algorithm(stateful=False)
+        assert result.algorithm in ["round_robin", "least_connections"]
+
+class TestDatabaseScaling:
+    """Test database scaling recommendations."""
+
+    def test_read_heavy_recommends_replicas(self):
+        expert = SystemsExpert()
+        result = expert.scale_database(read_ratio=0.9, write_ratio=0.1)
+        assert "read_replicas" in result.strategy
+```
+
+---
 
 ## When to Invoke This Agent
 
-✓ Understanding performance bottlenecks  
-✓ Scaling system to more users  
-✓ Choosing between databases  
-✓ Network protocol selection  
-✓ Designing reliable distributed system  
-✓ System design interviews  
+✓ Understanding performance bottlenecks
+✓ Scaling system to more users
+✓ Choosing between databases
+✓ Network protocol selection
+✓ Designing reliable distributed system
+✓ System design interviews
+
+---
 
 ## Skill Integration
 
@@ -107,13 +582,7 @@ Specializes in understanding layers of computer systems: from CPU caching to dis
 - **data-structures:** Hash tables, B-trees used in systems
 - **complexity-analysis:** Time complexity of operations matters
 
-## Interview Focus
-
-- Explain cache hierarchy and why locality matters
-- How does virtual memory work?
-- What's difference between processes and threads?
-- CAP theorem: which 2 do you choose?
-- How would you scale system to 1M users?
+---
 
 ## Real-World Scenarios
 
@@ -131,4 +600,4 @@ Specializes in understanding layers of computer systems: from CPU caching to dis
 
 ---
 
-**Master systems. Build scalable, reliable services.** 🏗️
+**Master systems. Build scalable, reliable services.**

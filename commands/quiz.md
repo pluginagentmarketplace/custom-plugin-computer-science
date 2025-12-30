@@ -1,241 +1,180 @@
 ---
 name: quiz
-description: /quiz
+description: Test CS knowledge with adaptive quizzes across all domains
 allowed-tools: Read
+sasmp_version: "1.3.0"
 ---
 
 # /quiz
 
-Test your Computer Science knowledge with adaptive, comprehensive quizzes across all domains.
+Test your Computer Science knowledge with adaptive, comprehensive quizzes.
+
+## Command Schema
+
+```yaml
+command_config:
+  version: "1.0.0"
+
+  input_validation:
+    domain:
+      type: string
+      enum: [foundations, algorithms, data-structures, complexity, systems, all]
+      required: false
+    difficulty:
+      type: string
+      enum: [easy, medium, hard]
+      required: false
+    mode:
+      type: string
+      enum: [practice, timed, adaptive, interview]
+      default: practice
+
+  exit_codes:
+    0: success
+    1: invalid_domain
+    2: quiz_interrupted
+    3: assessment_failed
+```
 
 ## Quick Usage
 
 ```
-/quiz [domain]              → Take quiz in domain
-/quiz [domain] [difficulty] → Specific difficulty (easy/medium/hard)
-/quiz all comprehensive     → Full assessment all domains
-/quiz [domain] timed        → 60-second round
-/quiz stats                 → Your quiz history and scores
-/quiz resume                → Continue interrupted quiz
+/quiz foundations          # Take foundations quiz
+/quiz algorithms medium    # Medium difficulty algorithms
+/quiz all                  # Comprehensive assessment
+/quiz timed                # 60-second per question
+/quiz stats                # Your quiz history
+/quiz resume               # Continue interrupted quiz
 ```
+
+---
 
 ## Quiz Domains
 
-### 1. Foundations Quiz (20 questions)
-**Topics:** Logic, proofs, set theory, combinatorics, number theory
+| Domain | Questions | Passing | Topics |
+|--------|-----------|---------|--------|
+| Foundations | 20 | 80% | Logic, proofs, sets, combinatorics |
+| Algorithms | 25 | 80% | Sorting, DP, greedy, backtracking |
+| Data Structures | 20 | 80% | Trees, graphs, hashes |
+| Complexity | 15 | 80% | Big O, Master Theorem, NP |
+| Systems | 20 | 80% | CPU, OS, networks, distributed |
 
-**Sample questions:**
-- Explain mathematical induction with example (Medium)
-- Prove by contradiction: √3 is irrational (Medium)
-- How many ways to arrange 5 distinct objects? (Easy)
-- What's the Pigeonhole Principle? (Easy)
-- Solve: x ≡ 3 (mod 5) and x ≡ 2 (mod 7) (Hard)
-
-**Passing:** 16/20 (80%)
-
-### 2. Algorithms Quiz (25 questions)
-**Topics:** Sorting, searching, DP, greedy, backtracking
-
-**Sample:**
-- Compare merge sort vs quick sort (Easy)
-- When is greedy algorithm optimal? Explain. (Medium)
-- Solve coin change problem for n=10 (Hard)
-- Design DP solution for knapsack (Hard)
-
-**Passing:** 20/25 (80%)
-
-### 3. Data Structures Quiz (20 questions)
-**Topics:** Linear, trees, graphs, hashes, advanced
-
-**Sample:**
-- BST search complexity? Why? (Easy)
-- When use linked list vs array? (Medium)
-- Implement LRU cache using hash + list (Hard)
-
-**Passing:** 16/20 (80%)
-
-### 4. Complexity Theory Quiz (15 questions)
-**Topics:** Big O, Master Theorem, NP-completeness, computability
-
-**Sample:**
-- What's Big O vs Big Theta? (Easy)
-- Apply Master Theorem: T(n)=3T(n/2)+n (Medium)
-- Reduce 3-SAT to prove NP-completeness (Hard)
-
-**Passing:** 12/15 (80%)
-
-### 5. Systems Quiz (20 questions)
-**Topics:** CPU, memory, OS, networks, databases, distributed
-
-**Sample:**
-- Explain CPU cache hierarchy (Easy)
-- Virtual memory: paging vs segmentation? (Medium)
-- Design replicated database with CAP theorem (Hard)
-
-**Passing:** 16/20 (80%)
+---
 
 ## Question Types
 
-### Multiple Choice
-4 options, select best answer
+| Type | Format | Time |
+|------|--------|------|
+| Multiple Choice | 4 options | 1 min |
+| True/False | Statement | 30 sec |
+| Short Answer | Explanation | 2-3 min |
+| Code Completion | Fill blanks | 3-5 min |
+| Problem Solving | Design/optimize | 5-10 min |
 
-### True/False
-Statement evaluation
-
-### Short Answer (2-3 minutes)
-Write explanation or short code
-
-### Code Completion
-Finish the function
-
-### Problem Solving
-Design or optimize algorithm
-
-### Matching
-Connect concepts to definitions
+---
 
 ## Difficulty Levels
 
-**Easy (5 min):** Basic recall, straightforward application
-**Medium (10 min):** Requires understanding and analysis
-**Hard (15 min):** Deep knowledge, synthesis, tricky edge cases
+| Level | Time | Description |
+|-------|------|-------------|
+| Easy | 5 min | Basic recall |
+| Medium | 10 min | Analysis required |
+| Hard | 15 min | Deep knowledge |
 
-## How Scoring Works
+---
 
-**Correct answer:**
-- Easy: +10 points
-- Medium: +15 points
-- Hard: +25 points
+## Scoring System
 
-**Streak bonus:** 3+ correct → +5 bonus
-**Speed bonus:** Answer in <2 min → +5 bonus
-**Total possible:** 500 points per full quiz
+| Correct Answer | Points |
+|----------------|--------|
+| Easy | +10 |
+| Medium | +15 |
+| Hard | +25 |
+| Streak bonus (3+) | +5 |
+| Speed bonus (<2min) | +5 |
+
+---
 
 ## Quiz Modes
 
 ### Practice Mode
-- Instant feedback on every question
+- Instant feedback
 - Explanations provided
 - No time limit
-- Repeat unlimited
+- Unlimited repeats
 
 ### Timed Mode
 - 60 seconds per question
 - Speed bonus available
-- No feedback until end
-- Simulates interview
+- Simulates interview pressure
 
 ### Adaptive Mode
-- Questions adjust to your level
-- Start easy, increase difficulty
+- Adjusts to your level
 - Focuses on weak areas
 - Personalized assessment
 
-### Competitive Mode
-- Leaderboards
-- Weekly challenges
-- Badges and achievements
-- Community rankings
+### Interview Mode
+- 3 problems in 90 minutes
+- Mixed difficulty
+- Real interview conditions
+
+---
 
 ## Performance Tracking
 
 ```
 /quiz stats
 
-Overall Score: 342/500 (68%)
+Overall: 342/500 (68%)
 
 By domain:
-  Foundations: 16/20 (80%) ✓ Mastery
-  Algorithms: 18/25 (72%) ~ Competent
-  Data Structures: 14/20 (70%) ~ Competent
-  Complexity: 10/15 (67%) ~ Learning
-  Systems: 12/20 (60%) ~ Needs work ← Focus here
+  Foundations: 80% ✓
+  Algorithms: 72% ~
+  Data Structures: 70% ~
+  Complexity: 67% ~
+  Systems: 60% ← Focus here
 
 Weak topics:
   1. NP-completeness (50%)
   2. Memory management (55%)
   3. Distributed systems (60%)
-
-Recommended action:
-  1. Review complexity theory fundamentals
-  2. Take systems quiz again (medium difficulty)
-  3. Study distributed consensus (CAP theorem)
-
-Streaks:
-  Current: 3 correct
-  Best: 8 correct
-  Days active: 12/30
 ```
-
-## Quiz Badges
-
-🥉 **Bronze:** Score 50%+ on any domain  
-🥈 **Silver:** Score 80%+ on any domain  
-🥇 **Gold:** Score 90%+ on any domain  
-💎 **Platinum:** Score 95%+ on all domains  
-🌟 **Streak Master:** 10+ consecutive correct  
-⚡ **Speed Demon:** Answer 5 hard in <5min  
-🎓 **CS Scholar:** Master all domains (90%+)  
-
-## Interview Simulation
-
-**Simulate actual interview:**
-```
-/quiz interview-prep
-
-Conditions:
-- 3 problems in 90 minutes
-- Time tracking
-- No explanations until end
-- Difficulty: Medium-Hard
-- Mix of domains
-
-Topics selected:
-1. DP Algorithm (15 min)
-2. System Design (30 min)
-3. Complexity Analysis (10 min)
-
-Result: Score + feedback
-```
-
-## Tips for Success
-
-**Before quiz:**
-- Review related material
-- Have paper/whiteboard ready
-- Quiet, distraction-free space
-
-**During quiz:**
-- Read question carefully
-- Think before answering
-- Flag difficult questions
-- Review if time permits
-
-**After quiz:**
-- Review all explanations
-- Understand wrong answers
-- Identify weak areas
-- Schedule remedial study
-
-## Continuous Learning
-
-**Recommended flow:**
-1. Take Foundations quiz → 70% pass? → Study more
-2. Study foundations 1 week
-3. Take quiz again → 80% pass? → Move on
-4. Repeat for each domain
-5. Full assessment after all
-6. Focused revision on weak areas
-7. Final mastery assessment
-
-**Typical timeline:**
-- Foundations: 1 week
-- Algorithms: 2-3 weeks
-- Data Structures: 1-2 weeks
-- Complexity: 1-2 weeks
-- Systems: 1-2 weeks
-- **Total: 6-10 weeks to mastery**
 
 ---
 
-**Assess your knowledge:** `/quiz foundations easy` to start! 📝
+## Badges
+
+| Badge | Requirement |
+|-------|-------------|
+| Bronze | 50%+ any domain |
+| Silver | 80%+ any domain |
+| Gold | 90%+ any domain |
+| Platinum | 95%+ all domains |
+| Streak Master | 10+ consecutive |
+| CS Scholar | Master all (90%+) |
+
+---
+
+## Tips for Success
+
+**Before:** Review material, quiet space, paper ready
+
+**During:** Read carefully, think before answering
+
+**After:** Review explanations, identify weak areas
+
+---
+
+## Recommended Flow
+
+1. Foundations quiz → 80%+ → Continue
+2. Algorithms quiz → 80%+ → Continue
+3. Data Structures → 80%+ → Continue
+4. Complexity → 80%+ → Continue
+5. Systems → 80%+ → Complete!
+
+**Timeline:** 6-10 weeks to full mastery
+
+---
+
+**Start:** `/quiz foundations easy` to begin assessment.

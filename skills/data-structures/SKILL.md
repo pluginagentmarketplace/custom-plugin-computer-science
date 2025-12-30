@@ -1,9 +1,43 @@
 ---
 name: data-structures
 description: Master selection and implementation of data structures. Learn when to use arrays, lists, trees, graphs, heaps, and hash tables for optimal performance.
+sasmp_version: "1.3.0"
+bonded_agent: 03-data-structures-expert
+bond_type: PRIMARY_BOND
 ---
 
-# Data Structures
+# Data Structures Skill
+
+## Skill Metadata
+
+```yaml
+skill_config:
+  version: "1.0.0"
+  category: implementation
+  prerequisites: [cs-foundations]
+  estimated_time: "6-8 weeks"
+  difficulty: intermediate
+
+  parameter_validation:
+    structure_type:
+      type: string
+      enum: [array, list, tree, heap, hash, graph, trie]
+      required: true
+    operation:
+      type: string
+      enum: [search, insert, delete, traverse]
+
+  retry_config:
+    max_attempts: 3
+    backoff_strategy: exponential
+    initial_delay_ms: 500
+
+  observability:
+    log_level: INFO
+    metrics: [structure_usage, operation_complexity]
+```
+
+---
 
 ## Quick Start
 
@@ -40,7 +74,6 @@ Choose the right structure for every problem. Master operations and trade-offs.
 - Ordered storage
 - Search/insert/delete O(log n) avg
 - Traversals: inorder, preorder, postorder
-- Use: Sorted data, range queries
 
 **Balanced Trees**
 - AVL: height-balanced
@@ -50,14 +83,8 @@ Choose the right structure for every problem. Master operations and trade-offs.
 
 **Heaps**
 - Min/Max heap property
-- Insert/delete O(log n)
-- Build O(n)
+- Insert/delete O(log n), Build O(n)
 - Use: Priority queues, heap sort
-
-**Tries**
-- String prefix tree
-- Insert/search O(m)
-- Use: Autocomplete, spell check
 
 ### Hash Structures
 
@@ -65,24 +92,8 @@ Choose the right structure for every problem. Master operations and trade-offs.
 - Average O(1) operations
 - Collision handling: chaining, open addressing
 - Load factor matters
-- Use: Dictionary, caching, deduplication
 
-**Hash Sets**
-- Unordered, unique elements
-- O(1) membership testing
-- Use: Deduplication, unique elements
-
-### Graphs
-
-**Representations**
-- Adjacency matrix: O(1) edge lookup, O(V²) space
-- Adjacency list: O(V+E) space
-- Edge list: Iterate edges
-
-**Graph Types**
-- Directed/undirected
-- Weighted/unweighted
-- Dense/sparse
+---
 
 ## Decision Matrix
 
@@ -95,7 +106,8 @@ Choose the right structure for every problem. Master operations and trade-offs.
 | Fast lookup | Hash table |
 | Prefix matching | Trie |
 | Relations | Graph |
-| Hierarchical | Tree |
+
+---
 
 ## Complexity Comparison
 
@@ -104,6 +116,19 @@ Choose the right structure for every problem. Master operations and trade-offs.
 | Search | O(n) | O(n) | O(log n) | O(1) avg | O(n) |
 | Insert | O(n) | O(1)* | O(log n) | O(1) avg | O(log n) |
 | Delete | O(n) | O(1)* | O(log n) | O(1) avg | O(log n) |
+
+---
+
+## Troubleshooting
+
+| Issue | Root Cause | Resolution |
+|-------|------------|------------|
+| Hash collision storm | Poor hash function | Improve hash, use chaining |
+| Tree degenerates | Sorted insertions | Use balanced tree (AVL/RB) |
+| Memory exhaustion | No size limits | Add capacity limits |
+| Iterator invalidation | Modify during iteration | Use safe iteration pattern |
+
+---
 
 ## Implementation Checklist
 
@@ -117,20 +142,3 @@ Choose the right structure for every problem. Master operations and trade-offs.
 - [ ] Trie
 - [ ] Graph (adjacency list)
 - [ ] Disjoint set union
-
-## Advanced Topics
-
-- Segment trees for range queries
-- Fenwick trees for prefix sums
-- Suffix trees for string matching
-- Skip lists for probabilistic balance
-- Bloom filters for membership
-- Consistent hashing for caching
-
-## Interview Focus
-
-- Know operation complexities
-- Understand space trade-offs
-- Explain when to use which
-- Implement core operations
-- Analyze alternatives
