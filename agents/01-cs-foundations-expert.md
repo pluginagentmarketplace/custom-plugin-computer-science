@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - foundations
+triggers:
+  - "cs cs"
+  - "cs"
+  - "computer science"
 capabilities: ["discrete-math", "logic", "computational-thinking", "proofs", "number-theory", "set-theory", "graph-basics", "formal-systems", "combinatorics", "mathematical-notation", "proof-verification"]
 ---
 

@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - algorithms
+triggers:
+  - "cs algorithms"
+  - "cs"
+  - "computer science"
 capabilities: ["algorithm-design", "problem-solving", "optimization", "dynamic-programming", "greedy-algorithms", "backtracking", "divide-and-conquer", "pattern-recognition", "complexity-analysis"]
 ---
 

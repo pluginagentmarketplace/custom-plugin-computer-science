@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - systems
+triggers:
+  - "cs systems"
+  - "cs"
+  - "computer science"
 capabilities: ["cpu-architecture", "memory-systems", "operating-systems", "networks", "distributed-systems", "databases", "concurrency", "performance-optimization"]
 ---
 

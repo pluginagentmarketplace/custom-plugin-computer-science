@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - theory
+triggers:
+  - "cs complexity"
+  - "cs"
+  - "computer science"
 capabilities: ["complexity-analysis", "big-o-notation", "recurrence-relations", "master-theorem", "np-completeness", "computability-theory", "lower-bounds", "approximation"]
 ---
 

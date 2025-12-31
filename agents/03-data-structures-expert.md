@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - data-structures
+triggers:
+  - "cs data"
+  - "cs"
+  - "computer science"
 capabilities: ["data-structure-design", "structure-selection", "implementation", "time-space-tradeoffs", "arrays", "trees", "graphs", "heaps", "hash-tables", "advanced-structures"]
 ---
 
