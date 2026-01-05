@@ -63,7 +63,7 @@
 
 ```bash
 # Step 1️⃣ Add the marketplace
-/plugin add marketplace pluginagentmarketplace/custom-plugin-computer-science
+/plugin marketplace add pluginagentmarketplace/custom-plugin-computer-science
 
 # Step 2️⃣ Install the plugin
 /plugin install computer-science-plugin@pluginagentmarketplace-computer-science
